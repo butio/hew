@@ -43,7 +43,7 @@ public class Purchase extends HttpServlet {
 		String coin = request.getParameter("coin");
 		String drink = request.getParameter("drink");
 		int MEMBER_ID = (int)session.getAttribute("MEMBER_ID");
-		String fileJsp = "/out.jsp";
+		String fileJsp = "/purchase.jsp";
 
 		 Billing r = new Billing();
 
