@@ -5,8 +5,9 @@
 
 <%
 
-ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
+String Choise = (String)request.getAttribute("Choise");
 
+ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,7 +19,9 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </head>
 <body>
 
-<h3>情報を参照する自販機を選択してください。</h3>
+<h3>情報を参照する<%=Choise %>を選択してください。</h3>
+
+
 
 <form action ="./EarningVending"  method="get">
 

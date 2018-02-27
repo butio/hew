@@ -4,31 +4,16 @@
 
 
 <%
-
-ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
 String vending = request.getParameter("vending");
 String action = request.getParameter("action");
+ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
 
 
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Style-Type" content="text/css">
-<link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
-<title>Insert title here</title>
-</head>
-<body>
 
-<h3></h3>
+<form>
 
-<form action = "./EarningVending"  method="get">
-
-<input type="hidden" name="vending" value="<%=vending%>">
-
-<table border ="1">
-
-
+<table>
 	<tr>
 		<td>商品名</td>
 		<td>売上本数</td>

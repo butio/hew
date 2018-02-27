@@ -12,20 +12,15 @@
 <h1>自動販売機管理画面</h1>
 
 <h2>売上情報の参照</h2>
-<a href="./SelectVendingServlet" >
-自販機
-</a>
-<br>
-<a href="./SelectAreaServlet" >
-エリア
-</a>
-<br>
-<a href="./Servlet" >
-全体
-</a>
-<br>
-
-
+<form name="Vending" method="get" action="./SelectVendingServlet">
+<a href="#" onClick="document.Vending.submit();">自販機</a>
+</form>
+<form name="Area" method="get" action="./SelectArea">
+<a href="#" onClick="document.Area.submit();">エリア</a>
+</form>
+<form name="All" method="get" action="./EarningAll">
+<a href="#" onClick="document.All.submit();">全体</a>
+</form>
 
 </body>
 </html>
