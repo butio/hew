@@ -38,26 +38,28 @@ public class Connect extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		String vendingID = request.getParameter("vendingMachineID");
-		System.out.println(vendingID);
 
-		ArrayList<ArrayList<String>> tbl=new ArrayList<ArrayList<String>>();
-		 Dao dao = null;
-		 ResultSet rs = null;
-		 try{
-			 String sql = "SELECT count,name FROM stock INNER JOIN product ON stock.product_id = product.id WHERE vending_id = '"+ vendingID +"' ORDER BY count ASC ;";
+		ArrayList<getVendingDB> arrayList=new ArrayList<getVendingDB>();
 
-			 dao = new Dao();
-			 rs = dao.execute(sql);
-			 while(rs.next()){
-				 ArrayList<String> rec=new ArrayList<String>();
-				 rec.add(rs.getString("count"));
-				 rec.add(rs.getString("name"));
-				 tbl.add(rec);
-			 }
+		Dao dao = null;
+		ResultSet rs = null;
+		try{
+			String sql = "SELECT count,image,state,price FROM stock INNER JOIN product ON stock.product_id = product.id WHERE vending_id = '"+ vendingID +"' ORDER BY count ASC ;";
 
-			 request.setAttribute("RESULT",tbl);
-			 RequestDispatcher rd=request.getRequestDispatcher("/machineSample.jsp");
-			 rd.forward(request, response);
+			dao = new Dao();
+			rs = dao.execute(sql);
+			while(rs.next()){
+				getVendingDB v = new getVendingDB();
+				v.setCount(rs.getInt("count"));
+				v.setImg(rs.getString("image"));
+				v.setState(rs.getInt("state"));
+				v.setPrice(rs.getInt("price"));
+				arrayList.add(v);
+			}
+
+			request.setAttribute("RESULT",arrayList);
+			RequestDispatcher rd=request.getRequestDispatcher("/machine.jsp");
+			rd.forward(request, response);
 
 		}catch(Exception e){
 		}finally{
@@ -71,7 +73,6 @@ public class Connect extends HttpServlet {
 
 			}
 		}
-
 	}
 
 	/**
