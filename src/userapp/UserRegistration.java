@@ -1,3 +1,4 @@
+
 package userapp;
 
 import java.io.IOException;
@@ -77,7 +78,6 @@ public class UserRegistration extends HttpServlet {
 
 			}
 		}
-
 			RequestDispatcher rd=request.getRequestDispatcher(strJspName);
 			rd.forward(request, response);
 	}

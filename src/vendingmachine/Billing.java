@@ -12,6 +12,7 @@ public class Billing {
 	private String errCoin;
 	private String date;
 	boolean errFlg;
+	boolean changeFlg;
 
 	public Billing(){
 		this.change = 0;
@@ -29,6 +30,9 @@ public class Billing {
 	public void setChange(int _coin ,int _price){
 		if(_coin >= _price){
 			this.change = _coin - _price;
+			if(change == 0){
+				this.changeFlg = true;
+			}
 			this.errFlg = true;
 		}else{
 			this.coin = _coin;
@@ -64,6 +68,11 @@ public class Billing {
     //エラーがあった場合遷移先を変更させるgetter
 	public boolean getJsp(){
 		return this.errFlg;
+	}
+
+	//エラーがあった場合遷移先を変更させるgetter
+	public boolean getChangeFlg(){
+		return this.changeFlg;
 	}
 
     //おつり

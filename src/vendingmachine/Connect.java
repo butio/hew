@@ -1,6 +1,8 @@
 package vendingmachine;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import Dao.Dao;
 
 /**
  * Servlet implementation class Connect
@@ -33,11 +37,41 @@ public class Connect extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		Billing r = new Billing();
+		String vendingID = request.getParameter("vendingMachineID");
+		System.out.println(vendingID);
 
-		request.setAttribute("BILLING",r);
-		RequestDispatcher rd=request.getRequestDispatcher("/machine.jsp");
-		rd.forward(request, response);
+		ArrayList<ArrayList<String>> tbl=new ArrayList<ArrayList<String>>();
+		 Dao dao = null;
+		 ResultSet rs = null;
+		 try{
+			 String sql = "SELECT count,name FROM stock INNER JOIN product ON stock.product_id = product.id WHERE vending_id = '"+ vendingID +"' ORDER BY count ASC ;";
+
+			 dao = new Dao();
+			 rs = dao.execute(sql);
+			 while(rs.next()){
+				 ArrayList<String> rec=new ArrayList<String>();
+				 rec.add(rs.getString("count"));
+				 rec.add(rs.getString("name"));
+				 tbl.add(rec);
+			 }
+
+			 request.setAttribute("RESULT",tbl);
+			 RequestDispatcher rd=request.getRequestDispatcher("/machineSample.jsp");
+			 rd.forward(request, response);
+
+		}catch(Exception e){
+		}finally{
+			try{
+				if(rs != null){
+					rs.close();
+				}
+				dao.close();
+			}
+			catch(Exception e){
+
+			}
+		}
+
 	}
 
 	/**

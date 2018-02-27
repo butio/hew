@@ -21,17 +21,17 @@ function map_canvas() {
     data.push({
       lat: '34.699875', //緯度
   		lng: '135.493932', //経度
-      url: 'machine.jsp', //リンク先
+      url: './Connect?vendingMachineID=1', //リンク先?vendingId = 1
     });
     data.push({
       lat: '34.699875',
       lng: '135.489932',
-      url: 'http://www.yaesu-book.co.jp/'
+      url: './Connect?vendingMachineID=1'
   	});
     data.push({
       lat: '34.702300',
       lng: '135.497932',
-      url: 'http://www.nihonbashi-tokyo.jp/'
+      url: './Connect?vendingMachineID=1'
   	});
 		data.push({
 			lat: '34.695973',

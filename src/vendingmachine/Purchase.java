@@ -43,64 +43,68 @@ public class Purchase extends HttpServlet {
 		String coin = request.getParameter("coin");
 		String drink = request.getParameter("drink");
 		int MEMBER_ID = (int)session.getAttribute("MEMBER_ID");
-		String fileJsp = "/out.jsp";
+		String fileJsp = "/purchase.jsp";
+		String change = "";
 
-		 Billing r = new Billing();
+		Billing r = new Billing();
 
-		 Dao dao = null;
-		 ResultSet rs = null;
+		Dao dao = null;
+		ResultSet rs = null;
 
-		 try{
+		try{
 
-			 int price = 0;
-			 dao = new Dao();
-			 rs = dao.execute("SELECT price FROM stock WHERE count = "+ drink +" ;");
-			 while(rs.next()){
-					price = rs.getInt("price");
-			 }
+			int price = 0;
+			dao = new Dao();
+			rs = dao.execute("SELECT price FROM stock WHERE count = "+ drink +" ;");
+			while(rs.next()){
+				price = rs.getInt("price");
+			}
 
-			 int intCoin = Integer.parseInt(coin);
-			 r.setChange(intCoin, price);
+			int intCoin = Integer.parseInt(coin);
+			r.setChange(intCoin, price);
 
-			 if(r.errFlg){
-				 System.out.println("購入");
+			if(r.errFlg){
+				System.out.println("購入");
 
-				 //売り上げを追加
-				 int productId = 0;
-				 dao = new Dao();
-				 rs = dao.execute("SELECT product_id FROM stock WHERE count = "+ drink +" ;");
-				 while(rs.next()){
-					 productId = rs.getInt("product_id");
-				 }
+				//売り上げを追加
+				int productId = 0;
+				dao = new Dao();
+				rs = dao.execute("SELECT product_id FROM stock WHERE count = "+ drink +" ;");
+				while(rs.next()){
+					productId = rs.getInt("product_id");
+				}
 
-				 int cnt = 0;
-				 dao = new Dao();
-				 rs = dao.execute("SELECT COUNT(*) FROM earnings;");
-				 while(rs.next()){
-				      cnt = rs.getInt("COUNT(*)");
-				 }
-				 cnt += 1;
+				int cnt = 0;
+				dao = new Dao();
+				rs = dao.execute("SELECT COUNT(*) FROM earnings;");
+				while(rs.next()){
+					cnt = rs.getInt("COUNT(*)");
+				}
+				cnt += 1;
 
-				 System.out.println(5);
+				System.out.println(5);
 
-				 dao = new Dao();
-				 dao.executeUpdate("INSERT INTO earnings(id, date, member_id, product_id, vending_id)VALUES('"+ cnt +"','"+ r.getDate() +"','"+MEMBER_ID +"','"+ productId +"','1');");
+				dao = new Dao();
+				dao.executeUpdate("INSERT INTO earnings(id, date, member_id, product_id, vending_id)VALUES('"+ cnt +"','"+ r.getDate() +"','"+MEMBER_ID +"','"+ productId +"','1');");
 
-				 //在庫を減少
-				 dao = new Dao();
-				 dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "';");
+				//在庫を減少
+				dao = new Dao();
+				dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "';");
 
-				 System.out.println(r.getChange());
-				session.setAttribute("CHANGE", r.getChange());
+				if(!r.changeFlg){
+					System.out.println(r.getChange());
+					change = "おつりは "+ r.getChange() + " 円です";
+				}else{
+					change = "";
+				}
 
-			 }else{
-				 System.out.println("未購入");
-
+			}else{
+				System.out.println("未購入");
 				System.out.println(r.getCoin());
 				session.setAttribute("COIN", r.getCoin());
 				fileJsp = "/machine.jsp";
 
-			 }
+			}
 		}catch(Exception e){
 		}finally{
 			try{
@@ -113,10 +117,9 @@ public class Purchase extends HttpServlet {
 
 			}
 		}
-
-		request.setAttribute("BILLING",r);
-		RequestDispatcher rd=request.getRequestDispatcher(fileJsp);
-		rd.forward(request, response);
+		 request.setAttribute("CHANGE",change);
+		 RequestDispatcher rd=request.getRequestDispatcher(fileJsp);
+		 rd.forward(request, response);
 
 	}
 
