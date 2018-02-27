@@ -33,22 +33,23 @@ button{
 .button3:active {
     color: #000;
 }
-.rad1 {
-    border-radius:10px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-
-	text-shadow: 1px 1px 1px #CCC;
-}
-
-.box{
+.cold{
     width: 200px;
     color: white;
     background: blue;
     border-radius: 6px;
 }
-
-.box p {
+.cold p {
+    margin: 0;
+    padding: 0;
+}
+.hot{
+    width: 200px;
+    color: white;
+    background: #FF6600;
+    border-radius: 6px;
+}
+.hot p {
     margin: 0;
     padding: 0;
 }
