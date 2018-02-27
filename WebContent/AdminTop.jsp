@@ -15,10 +15,10 @@
 <form name="Vending" method="get" action="./SelectVendingServlet">
 <a href="#" onClick="document.Vending.submit();">自販機</a>
 </form>
-<form name="Area" method="get" action="./SelectArea">
+<form name="Area" method="get" action="./SelectArea"">
 <a href="#" onClick="document.Area.submit();">エリア</a>
 </form>
-<form name="All" method="get" action="./EarningAll">
+<form name="All" method="get" action="./EarningAll"">
 <a href="#" onClick="document.All.submit();">全体</a>
 </form>
 
