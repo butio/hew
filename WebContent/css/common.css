@@ -1,22 +1,57 @@
-@body {
-  overflow : hidden;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(55%,#fbf9eb), color-stop(55%,#f1eed6), color-stop(100%,#fbf9eb));
-  background: linear-gradient(to bottom, #fbf9eb 55%, #f1eed6 55%, #fbf9eb 100%);
-}
-img, div {
+
+img{
   position: absolute;
-  top: 0;
+  top: 150;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
 }
-.shadow {
-  width: 150px;
-  height: 150px;
-  top: 190px;
-  border-radius: 100px;
-  background-color: #e6e1bb;
-  transform: scale(1.0, 0.2);
-  -webkit-transform: scale(1.0, 0.2);
+
+/* Non essential CSS - Just for example centering */
+
+html, body {
+width: 100%;
+height: 100%;
+margin: 0;
+}
+
+/* Essential CSS - Makes the effect work */
+
+body {
+background-color: #3498db;
+}
+
+.bubbles {
+display: table;
+width: 100%;
+height: 100%;
+text-align: center;
+display: inline-block;
+font-family: arial;
+position: relative;
+}
+
+.bubbles h1 {
+position: relative;
+margin: 1em 0 0;
+font-family: 'Luckiest Guy', cursive;
+color: #fff;
+z-index: 2;
+}
+
+.bubbles h2 {
+position: relative;
+margin: 1em 0 0;
+font-family: 'Luckiest Guy', cursive;
+color: #fff;
+z-index: 2;
+}
+
+.individual-bubble {
+position: absolute;
+border-radius: 100%;
+bottom: 10px;
+background-color: #fff;
+z-index: 1;
 }

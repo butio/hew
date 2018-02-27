@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%String change = (String)request.getAttribute("CHANGE"); %>
 <html>
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Luckiest+Guy'>
   <link rel="stylesheet" href="css/common.css">
   <style>
     /* CSSアニメーションの設定 */
@@ -38,12 +40,18 @@
 </head>
 <body>
 
-
-  <div class="shadow"></div>
-  <img id="mitarashi" class="poyon" src="image/drink.png" width="200" height="200">
-  <script>
-    // ID値「mitarashi」に対してCSSアニメ―ション「poyon」を300ミリ秒の間隔を空けてループ再生
-    looopAnimation("mitarashi", "poyon", 300);
+	<div class="shadow"></div>
+	<img id="drink" class="poyon" src="image/17b27901a4998607243b1de5a1fa27ac.png" width="200" height="200">
+	<script>
+    // ID値「drink」に対してCSSアニメ―ション「poyon」を300ミリ秒の間隔を空けてループ再生
+    looopAnimation("drink", "poyon", 900);
   </script>
+	<div class="bubbles">
+		<h1>ご購入ありがとうございました。</h1>
+		<h2><%=change %></h2>
+	</div>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <script  src="js/common.js"></script>
+
 </body>
 </html>
