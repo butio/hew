@@ -43,7 +43,7 @@ public class UserRegistration extends HttpServlet {
 		User u = new User();
 		u.setAge((String)request.getParameter("age"));
 		String sex =request.getParameter("sex");
-		String strJspName = "./machine.jsp";
+		String strJspName = "./map.jsp";
 		String sqlcnt="SELECT COUNT(*) FROM member;";
 
 		 Dao dao = null;

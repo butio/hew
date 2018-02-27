@@ -47,7 +47,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 								<td>
 								<img src="image/<%=v.getImg()%>">
 								<div class="<%=v.getStateCss()%>"><p><%=v.getState()%></p></div>
-								<p><button type='submit' name='drink' value='<%=v.getCount()%>'class="square_btn"><%=v.getPrice()%></button></p>
+								<p><button type='submit' name='drink' value='<%=v.getCount()%>'class="button3 rad1"><%=v.getPrice()%></button></p>
 								</td>
 					<%}%>
 				</tr>

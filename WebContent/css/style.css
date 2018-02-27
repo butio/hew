@@ -33,6 +33,14 @@ button{
 .button3:active {
     color: #000;
 }
+.rad1 {
+    border-radius:40px;
+    -webkit-border-radius:40px;
+    -moz-border-radius:40px;
+
+	text-shadow: 1px 1px 1px #CCC;
+}
+
 .cold{
     width: 200px;
     color: white;
