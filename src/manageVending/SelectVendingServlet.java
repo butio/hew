@@ -38,14 +38,15 @@ public class SelectVendingServlet extends HttpServlet {
 
 
 		VendingList = Vending.VendingList();
-
 		System.out.println(VendingList);
-
 		String Choise = ("自販機");
-
 		System.out.println(Choise);
 
+		String ChoisePrice = ("vending");
 
+
+
+		request.setAttribute("ChoisePrice",ChoisePrice);
 		request.setAttribute("Choise",Choise);
 		request.setAttribute("Result",VendingList);
 

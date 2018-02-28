@@ -9,29 +9,33 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form name="Vending" method="get" action="./SelectVendingServlet">
+</form>
+<form name="Area" method="get" action="./SelectArea"">
+</form>
+<form name="All" method="get" action="./EarningAll"">
+</form>
 <div id="wrapper">
 <div id="header">
 <ul>
-<li class="machine"><a href="./SelectVendingServlet" >自販機</a></li>
-<li class="area"><a href="./SelectAreaServlet" >エリア</a></li>
-<li class="all"><a href="./Servlet" >全体</a></li>
+<li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
+<li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
+<li class="all"><a href="#" onClick="document.All.submit();">全体</a>
+</li>
 </ul>
 </div>
 <div id="navi">
 <h2 class="size">メニュー</h2>
 <ul>
 <li class="navigation">
-<form name="Vending" method="get" action="./SelectVendingServlet">
 <a href="#" onClick="document.Vending.submit();">自販機</a>
-</form>
 </li>
 <li class="navigation">
-<form name="Area" method="get" action="./SelectArea"">
 <a href="#" onClick="document.Area.submit();">エリア</a>
-</form></li>
-<li class="navigation"><form name="All" method="get" action="./EarningAll"">
+</li>
+<li class="navigation">
 <a href="#" onClick="document.All.submit();">全体</a>
-</form></li>
+</li>
 </ul>
 </div>
 <div id="footer">

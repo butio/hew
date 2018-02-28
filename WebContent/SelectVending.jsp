@@ -5,7 +5,11 @@
 
 <%
 
+
 String Choise = (String)request.getAttribute("Choise");
+String ChoisePrice = (String)request.getAttribute("ChoisePrice");
+
+
 
 ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
 
@@ -25,7 +29,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
 <form action ="./EarningVending"  method="get">
 
-<select name="vending">
+<select name="select">
 <% for(ArrayList<String> rec: aryTable){ %>
 	<% int cnt = 0; %>
 	<% for(String data : rec){ %>
@@ -40,6 +44,9 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
 </select>
 <br>
+
+
+  <input type="hidden" name="choise"value="<%=ChoisePrice %>"></input>
   <button type="submit" name="action" value="table">票で表示</button>
   <button type="submit" name="action" value="chart">グラフで表示</button>
 

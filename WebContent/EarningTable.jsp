@@ -11,7 +11,8 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
 %>
 
-<form>
+<form action ="./EarningVending"  method="get">
+
 
 <table>
 	<tr>
