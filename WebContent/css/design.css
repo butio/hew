@@ -4,28 +4,34 @@
 	height:40px;
 	background-color:moccasin;
 }
+#navi h2{
+	font-size:25px;
+}
 .machine {
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: auto; /*上からの距離(positionで指定している場合に適用)*/
     right: 450px; /*右からの距離(positionで指定している場合に適用)*/
     font-size:18px;
+    line-height:40px;
 }
 .area {
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: 0; /*上からの距離(positionで指定している場合に適用)*/
     right: 300px; /*右からの距離(positionで指定している場合に適用)*/
-     font-size:18px;
+    font-size:18px;
+    line-height:40px;
 }
 .all {
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: 0; /*上からの距離(positionで指定している場合に適用)*/
     right: 150px; /*右からの距離(positionで指定している場合に適用)*/
-     font-size:18px;
+    font-size:18px;
+    line-height:40px;
 }
 #navi{
 	height:250px;
 	margin-top:20px;
-
+	padding-left:200px;
 }
 #footer{
 	font-size:18px;
@@ -34,4 +40,15 @@
 	height:40px;
 	text-align: center;
 	background-color:moccasin;
+}
+.copy{
+	line-height:40px;
+}
+.size{ /*h2行間サイズ*/
+	margin-bottom:30px ;
+}
+.navigation{ /*li行間サイズ*/
+	margin-left: 40px ;
+	margin-bottom: 40px;
+	font-size:18px;
 }

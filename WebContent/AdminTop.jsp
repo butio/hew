@@ -5,22 +5,38 @@
 <head>
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
+<link rel="stylesheet" type="text/css" href="./css/reset.css">
 <title>Insert title here</title>
 </head>
 <body>
-
-<h1>自動販売機管理画面</h1>
-
-<h2>売上情報の参照</h2>
+<div id="wrapper">
+<div id="header">
+<ul>
+<li class="machine"><a href="./SelectVendingServlet" >自販機</a></li>
+<li class="area"><a href="./SelectAreaServlet" >エリア</a></li>
+<li class="all"><a href="./Servlet" >全体</a></li>
+</ul>
+</div>
+<div id="navi">
+<h2 class="size">メニュー</h2>
+<ul>
+<li class="navigation">
 <form name="Vending" method="get" action="./SelectVendingServlet">
 <a href="#" onClick="document.Vending.submit();">自販機</a>
 </form>
+</li>
+<li class="navigation">
 <form name="Area" method="get" action="./SelectArea"">
 <a href="#" onClick="document.Area.submit();">エリア</a>
-</form>
-<form name="All" method="get" action="./EarningAll"">
+</form></li>
+<li class="navigation"><form name="All" method="get" action="./EarningAll"">
 <a href="#" onClick="document.All.submit();">全体</a>
-</form>
-
+</form></li>
+</ul>
+</div>
+<div id="footer">
+<p class="copy">copyright 2018</p>
+</div>
+</div>
 </body>
 </html>
