@@ -42,9 +42,10 @@ public class Purchase extends HttpServlet {
 		String coin = request.getParameter("coin");
 		String drink = request.getParameter("drink");
 		int MEMBER_ID = (int)session.getAttribute("MEMBER_ID");
+		String VENDING_ID = (String)session.getAttribute("VENDING_ID");
 		String fileJsp = "/purchase.jsp";
 		String change = "";
-
+		System.out.println(VENDING_ID);
 		Billing r = new Billing();
 
 		Dao dao = null;
@@ -81,10 +82,8 @@ public class Purchase extends HttpServlet {
 				}
 				cnt += 1;
 
-				System.out.println(5);
-
 				dao = new Dao();
-				dao.executeUpdate("INSERT INTO earnings(id, date, member_id, product_id, vending_id)VALUES('"+ cnt +"','"+ r.getDate() +"','"+MEMBER_ID +"','"+ productId +"','1');");
+				dao.executeUpdate("INSERT INTO earnings(id, date, member_id, product_id, vending_id)VALUES('"+ cnt +"','"+ r.getDate() +"','"+MEMBER_ID +"','"+ productId +"','"+VENDING_ID+"');");
 
 				//在庫を減少
 				dao = new Dao();
@@ -101,7 +100,7 @@ public class Purchase extends HttpServlet {
 				System.out.println("未購入");
 				System.out.println(r.getCoin());
 				session.setAttribute("COIN", r.getCoin());
-				fileJsp = "/machine.jsp";
+				fileJsp = "/Connect?vendingMachineID="+VENDING_ID+"";
 
 			}
 		}catch(Exception e){

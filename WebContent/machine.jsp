@@ -19,24 +19,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 	    }
 	    $this.value=str;
 	}
-
-	function btn(){
-	//名前と感想の欄のテキストを変数に代入する
-		var coin = document.getElementByClassName("price").value;
-		var price = document.getElementsByClassName("button3 rad1");
-		coin = Number(coin);
-		price = Number(price);
-
-		if(coin >= price){
-			btn.value = '押せる';
-            btn.removeAttribute('disabled');
-        } else {
-            btn.value = '押せない';
-            btn.setAttribute('disabled', 'disabled');
-        }
-
-	}
-//-->
+	//-->
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style=Type" content="text/css;">
@@ -44,7 +27,6 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 <title>自販機</title>
 </head>
 <body>
-
 <form name="machine" action="./Purchase" method="get">
 
 		<table class="product" border=1>
@@ -63,9 +45,8 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 				%>
 								<td>
 								<img src="image/<%=v.getImg()%>">
-								<div class="<%=v.getStateCss()%>"><p><%=v.getState()%></p></div>
-								<p><button type='submit' name='drink' value='<%=v.getCount()%>'class="button3 rad1" disabled="disabled"><%=v.getPrice()%></button></p>
-								</td>
+								<div class="<%=v.getStateCss()%>"><p id="btn_price"><%=v.getState()%></p></div>
+								<p><button id="btn" type='submit' name='drink' value='<%=v.getCount()%>'class="button3 rad1"  ><%=v.getPrice()%></button></p>
 					<%}%>
 				</tr>
 			<%}%>
@@ -75,7 +56,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 		<img class="koukoku"src="image/koukoku.png">
 
 		<div id="price">
- 	<input name="coin" value=""  type="number" class="price" min="0" max="1000" step="10" onInput="checkForm(this)" required="required" >
+ 	<input id="textCoin" name="coin" value=""  type="number" class="price" min="0" max="1000" step="10" onInput="checkForm(this)"  required="required" >
 </div>
 
 </form>

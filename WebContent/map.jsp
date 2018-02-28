@@ -7,7 +7,7 @@
 <style>
 #map {
  width: 100%;
- height: 650px;
+ height: 800px;
 }
 </style>
 </head>
