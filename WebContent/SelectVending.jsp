@@ -35,7 +35,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </div>
 <h3 class="infomation">情報を参照する<%=Choise %>を選択してください。</h3>
 <form action ="./EarningVending"  method="get">
-<div id="select">
 <select name="select">
 <% for(ArrayList<String> rec: aryTable){ %>
 	<% int cnt = 0; %>
@@ -49,7 +48,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 	<% } %>
 <%} %>
 </select>
-</div>
 <br>
   <input type="hidden" name="choise"value="<%=ChoisePrice %>"></input>
   <button type="submit" name="action" value="table">票で表示</button>
