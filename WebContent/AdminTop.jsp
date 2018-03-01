@@ -15,13 +15,15 @@
 </form>
 <form name="All" method="get" action="./EarningVending"">
 </form>
+<form name="Stock" method="get" action=""">
+</form>
 <div id="wrapper">
 <div id="header">
 <ul>
-
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
+<li class="stock"><a href="#" onClick="document.Stock.submit();">在庫</a>
 </li>
 </ul>
 </div>
@@ -36,6 +38,9 @@
 </li>
 <li class="navigation">
 <a href="#" onClick="document.All.submit();">全体</a>
+</li>
+<li class="navigation">
+<a href="#" onClick="document.All.submit();">在庫</a>
 </li>
 </ul>
 </div>
