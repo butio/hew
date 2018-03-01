@@ -45,7 +45,6 @@ public class Purchase extends HttpServlet {
 		String VENDING_ID = (String)session.getAttribute("VENDING_ID");
 		String fileJsp = "/purchase.jsp";
 		String change = "";
-		System.out.println(VENDING_ID);
 		Billing r = new Billing();
 
 		Dao dao = null;
@@ -64,12 +63,11 @@ public class Purchase extends HttpServlet {
 			r.setChange(intCoin, price);
 
 			if(r.errFlg){
-				System.out.println("購入");
 
 				//売り上げを追加
 				int productId = 0;
 				dao = new Dao();
-				rs = dao.execute("SELECT product_id FROM stock WHERE count = "+ drink +" ;");
+				rs = dao.execute("SELECT product_id FROM stock WHERE count = "+ drink +" AND vending_id = "+ VENDING_ID +";");
 				while(rs.next()){
 					productId = rs.getInt("product_id");
 				}
@@ -90,15 +88,12 @@ public class Purchase extends HttpServlet {
 				dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "';");
 
 				if(!r.changeFlg){
-					System.out.println(r.getChange());
 					change = "おつりは "+ r.getChange() + " 円です";
 				}else{
 					change = "";
 				}
 
 			}else{
-				System.out.println("未購入");
-				System.out.println(r.getCoin());
 				session.setAttribute("COIN", r.getCoin());
 				fileJsp = "/Connect?vendingMachineID="+VENDING_ID+"";
 

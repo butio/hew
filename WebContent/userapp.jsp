@@ -8,23 +8,23 @@
 	    //今日の日時を表示
 	        window.onload = function () {
 	            //今日の日時を表示
-	            var date = new Date()
-	            var year = date.getFullYear()
-	            var month = date.getMonth() + 1
-	            var day = date.getDate()
+	            var date = new Date();
+	            var year = date.getFullYear();
+	            var month = date.getMonth() + 1;
+	            var day = date.getDate();
 
 
 	            var toTwoDigits = function (num, digit) {
-	              num += ''
+	              num += '';
 	              if (num.length < digit) {
-	                num = '0' + num
+	                num = '0' + num;
 	              }
-	              return num
-	            }
+	              return num;
+	            };
 
-	            var yyyy = toTwoDigits(year, 4)
-	            var mm = toTwoDigits(month, 2)
-	            var dd = toTwoDigits(day, 2)
+	            var yyyy = toTwoDigits(year, 4);
+	            var mm = toTwoDigits(month, 2);
+	            var dd = toTwoDigits(day, 2);
 	            var ymd = yyyy + "-" + mm + "-" + dd;
 
 	            document.getElementById("today").value = ymd;
@@ -61,7 +61,7 @@
 		</div>
 
       <div class="submit">
-        <input type="submit" value="送信" id="button-blue"/>
+        <input type="submit" value="送信" id="button-blue"  onclick="window.resizeTo(500,300)"/>
         <div class="ease"></div>
       </div>
     </form>
