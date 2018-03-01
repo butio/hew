@@ -16,16 +16,16 @@
 <form name="All" method="get" action="./EarningVending"">
 <input type="hidden"name="action"value="table">
 </form>
-<form name="Stock" method="get" action=""">
+<form name="Stock" method="get" action="">
 </form>
 <div id="wrapper">
 <div id="header">
 <ul>
+<li class="title"><a href="AdminTop.jsp" >自動販売機管理システム</a></li>
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
-<li class="stock"><a href="#" onClick="document.Stock.submit();">在庫</a>
-</li>
+<li class="stock"><a href="#" onClick="document.Stock.submit();">在庫</a></li>
 </ul>
 </div>
 <div id="navi">
