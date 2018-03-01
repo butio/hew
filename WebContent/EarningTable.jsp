@@ -37,10 +37,10 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 %>
 <form action ="./EarningVending"  method="get">
 <div id="earning">
-<table border=1>
+<table class="table">
 	<tr>
-		<td>商品名</td>
-		<td>売上本数</td>
+		<th>商品名</th>
+		<th>売上本数</th>
 	</tr>
 		<!-- データベースの中身を表示する -->
 		<% for(ArrayList<String> rec: aryTable){ %>
@@ -110,8 +110,8 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   </select>
 </center>
 <center class="item">
-<button class="button" type="submit" name="table" value="table">選択項目を反映して再表示</button>
-<button class="button" type="submit" name="chart" value="chart">グラフで表示</button>
+<button class="button" type="submit" name="action" value="table">選択項目を反映して再表示</button>
+<button class="button" type="submit" name="action" value="chart">グラフで表示</button>
 <input type="hidden" name="select"value="<%=vending%>">
 </center>
 </form>

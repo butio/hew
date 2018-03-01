@@ -81,7 +81,7 @@
 	margin-top:20px;
 	margin:30px;
 	padding:20px;
-	border:5px solid maroon;
+	border:5px solid #67c5ff;
 	background-color:	;
 }
 table{
@@ -154,4 +154,8 @@ a{
 a:hover {
     text-decoration: none; /*テキストの装飾指定(下線、上線など)(noneはなし)*/
     font-weight:bold;
+}
+
+.table td{
+	border-bottom: 1px solid black;
 }
