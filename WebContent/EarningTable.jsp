@@ -31,16 +31,17 @@
 </div>
     <%@ page import="java.util.ArrayList" %>
 <%
-String vending = request.getParameter("vending");
+String choise = request.getParameter("choise");
+String select = request.getParameter("select");
 String action = request.getParameter("action");
 ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
 %>
 <form action ="./EarningVending"  method="get">
 <div id="earning">
-<table class="table">
+<table border=1>
 	<tr>
-		<th>商品名</th>
-		<th>売上本数</th>
+		<td>商品名</td>
+		<td>売上本数</td>
 	</tr>
 		<!-- データベースの中身を表示する -->
 		<% for(ArrayList<String> rec: aryTable){ %>
@@ -111,8 +112,11 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </center>
 <center class="item">
 <button class="button" type="submit" name="action" value="table">選択項目を反映して再表示</button>
+<input type="hidden" name="select"value="<%=select%>">
 <button class="button" type="submit" name="action" value="chart">グラフで表示</button>
-<input type="hidden" name="select"value="<%=vending%>">
+<input type="hidden" name="select"value="<%=select%>">
+
+
 </center>
 </form>
 <div id="footer">

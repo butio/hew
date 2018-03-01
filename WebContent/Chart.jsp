@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+
+ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("PieChart");
+
+
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,18 +19,27 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
+
       function drawChart() {
 
+ 		var data1;
+ 		var data2;
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+          ['商品', 'Hours per Day'],
 
-        var options = {
+  		<% for(ArrayList<String> rec: aryTable){ %>
+  		<% int cnt = 0;%>
+  			<% for(String data : rec){ %>
+  			<%if(cnt == 0){%>
+  				data1 = <%=data %>;
+  				<% }else{ %>
+  				data2 = <%=data%>;
+  				<% } %>
+  				document.write(["'"+ data1 + "'",+ data2 +],
+  			<% } %>
+  	<% } %>
+
+  		var options = {
           title: 'My Daily Activities'
         };
 
@@ -50,16 +67,16 @@
     // 配列からデータの生成
     var data = google.visualization.arrayToDataTable([
       ['月', '本数'],
-      ['1月', 54000 ],
-      ['2月', 53500  ],
-      ['3月', 54500  ],
-      ['4月', 60000  ],
-      ['5月', 59600  ],
-      ['6月', 60000  ],
-      ['7月', 68000  ],
-      ['8月', 76000  ],
-      ['9月', 72000  ],
-      ['10月',64000  ],
+      ['1月',  ],
+      ['2月',   ],
+      ['3月',   ],
+      ['4月',   ],
+      ['5月',   ],
+      ['6月',   ],
+      ['7月',   ],
+      ['8月',   ],
+      ['9月',   ],
+      ['10月',  ],
       ['11月',66000  ],
       ['12月',65000],
 

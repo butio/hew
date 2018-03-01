@@ -14,7 +14,7 @@
 <form name="Area" method="get" action="./SelectArea"">
 </form>
 <form name="All" method="get" action="./EarningVending"">
-<input type="hidden"name="action"value="table">
+<input type="hidden"name="action"value="">
 </form>
 <form name="Stock" method="get" action="">
 </form>

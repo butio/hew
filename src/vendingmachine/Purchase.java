@@ -81,11 +81,11 @@ public class Purchase extends HttpServlet {
 				cnt += 1;
 
 				dao = new Dao();
-				dao.executeUpdate("INSERT INTO earnings(id, date, member_id, product_id, vending_id)VALUES('"+ cnt +"','"+ r.getDate() +"','"+MEMBER_ID +"','"+ productId +"','"+VENDING_ID+"');");
+				dao.executeUpdate("INSERT INTO earnings(id, date, member_id, product_id, vending_id, stock_count)VALUES('"+ cnt +"','"+ r.getDate() +"','"+MEMBER_ID +"','"+ productId +"','"+VENDING_ID+"','"+drink+"');");
 
 				//在庫を減少
 				dao = new Dao();
-				dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "';");
+				dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "' AND '"+VENDING_ID+"';" );
 
 				if(!r.changeFlg){
 					change = "おつりは "+ r.getChange() + " 円です";
