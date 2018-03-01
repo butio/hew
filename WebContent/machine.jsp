@@ -27,8 +27,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 <title>自販機</title>
 </head>
 <body>
-
-<form action="./Purchase" method="get">
+<form name="machine" action="./Purchase" method="get">
 
 		<table class="product" border=1>
 			<%
@@ -46,9 +45,8 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 				%>
 								<td>
 								<img src="image/<%=v.getImg()%>">
-								<div class="<%=v.getStateCss()%>"><p><%=v.getState()%></p></div>
-								<p><button type='submit' name='drink' value='<%=v.getCount()%>'class="button3 rad1"><%=v.getPrice()%></button></p>
-								</td>
+								<div class="<%=v.getStateCss()%>"><p id="btn_price"><%=v.getState()%></p></div>
+								<p><button id="btn" type='submit' name='drink' value='<%=v.getCount()%>'class="button3 rad1"  ><%=v.getPrice()%></button></p>
 					<%}%>
 				</tr>
 			<%}%>
@@ -58,7 +56,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 		<img class="koukoku"src="image/koukoku.png">
 
 		<div id="price">
- 	<input name="coin" value=""  type="number" class="price" min="0" max="1000" step="10" onInput="checkForm(this)" required="required" >
+ 	<input id="textCoin" name="coin" value=""  type="number" class="price" min="0" max="1000" step="10" onInput="checkForm(this)"  required="required" >
 </div>
 
 </form>

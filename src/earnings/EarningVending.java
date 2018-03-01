@@ -33,21 +33,38 @@ public class EarningVending extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 
+
+		String jsp =("EarningTable.jsp");
+		String choise = request.getParameter("choise");
 		String action = request.getParameter("action");
-		String vending = request.getParameter("select");
-		vending = "1";
+		String select = request.getParameter("select");
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
+		String year2 = request.getParameter("year2");
+		String month2 = request.getParameter("month2");
+		String day2 = request.getParameter("day2");
+
 
 		ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
 
-		EarningList = Earnings.earningVendingProduct(vending);
+		System.out.println(select);
+		System.out.println(choise);
+		if(choise.equals("vending")){
+			EarningList = Earnings.earningVendingProduct(select);
+		}else if(choise.equals("area")){
+			EarningList = Earnings.earningAreaProduct(select);
+		}else{
+			EarningList = Earnings.earningProduct();
+		}
 
 
 
 		request.setAttribute("Result",EarningList);
-		request.setAttribute("vending",vending);
+		request.setAttribute("vending",select);
 
 
-		RequestDispatcher rd = request.getRequestDispatcher("EarningTable.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(jsp);
 		rd.forward(request, response);
 
 

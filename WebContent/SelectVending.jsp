@@ -24,6 +24,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <body>
 <h3>情報を参照する<%=Choise %>を選択してください。</h3>
 <form action ="./EarningVending"  method="get">
+
 <select name="select">
 <% for(ArrayList<String> rec: aryTable){ %>
 	<% int cnt = 0; %>

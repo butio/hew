@@ -7,7 +7,7 @@
 <style>
 #map {
  width: 100%;
- height: 650px;
+ height: 800px;
 }
 </style>
 </head>
@@ -19,64 +19,64 @@
 		function map_canvas() {
 			//マーカーの情報
 			var data = new Array();
-			data.push({
+			data.push({//阪神電鉄
 				lat : '34.699875', //緯度
 				lng : '135.493932', //経度
 				url : './Connect?vendingMachineID=1', //リンク先
 			});
-			data.push({
+			data.push({//梅田ランプ西交差点
 				lat : '34.699875',
 				lng : '135.489932',
-				url : 'http://www.yaesu-book.co.jp/'
+				url : './Connect?vendingMachineID=2'
 			});
-			data.push({
+			data.push({//阪急うめだ本店前
 				lat : '34.702300',
 				lng : '135.497932',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=3'
 			});
-			data.push({
+			data.push({//京橋駅
 				lat : '34.695973',
 				lng : '135.534298',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
-				lat : '34.699972',
-				lng : '135.536075',
+			data.push({//桜之宮東公園
+				lat : '34.700506',
+				lng : '135.535233',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
-				lat : '34.698549',
-				lng : '135.528719',
+			data.push({//大阪市立東高等学校
+				lat : '34.699874',
+				lng : '135.528476',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
-				lat : '34.684383',
-				lng : '135.499071',
+			data.push({//大阪ビューホテル 本町
+				lat : '34.684302',
+				lng : '135.498983',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
-				lat : '34.682266',
-				lng : '135.494136',
+			data.push({//阿波座南公園
+				lat : '34.679779',
+				lng : '135.491644',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
-				lat : '34.681031',
-				lng : '135.501603',
+			data.push({//久宝公園
+				lat : '34.680204',
+				lng : '135.502822',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
+			data.push({//野田阪神駅
 				lat : '34.694288',
 				lng : '135.474824',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
+			data.push({//JR野田駅
 				lat : '34.689052',
 				lng : '135.47491',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
-			data.push({
-				lat : '34.691652',
-				lng : '135.47891',
+			data.push({//大阪福島税務署
+				lat : '34.692304',
+				lng : '135.480059',
 				url : 'http://www.nihonbashi-tokyo.jp/'
 			});
 

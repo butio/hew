@@ -9,7 +9,9 @@ public class Area {
 
 
 	public static ArrayList<ArrayList<String>> AreaList(){
-		String sql = "SELECT area FROM vending;";
+		String sql = "SELECT DISTINCT v.area_id,a.area_place" +
+				" FROM vending v" +
+				" INNER JOIN area a ON a.id = v.area_id;";
 
 		ArrayList<ArrayList<String>> tbl = new ArrayList<ArrayList<String>>();
 
@@ -26,8 +28,8 @@ public class Area {
 			while(rs.next()){
 				ArrayList<String>rec = new ArrayList<String>();
 
-				rec.add(rs.getString("area"));
-				rec.add(rs.getString("area"));
+				rec.add(rs.getString("area_id"));
+				rec.add(rs.getString("area_place"));
 				tbl.add(rec);
 
 			}

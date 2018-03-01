@@ -38,12 +38,15 @@ public class SelectArea extends HttpServlet {
 
 
 		String Choise = "エリア";
+		String ChoisePrice = ("area");
+
 		AreaList = Area.AreaList();
 
 		System.out.println(AreaList);
 
 
 		request.setAttribute("Choise",Choise);
+		request.setAttribute("ChoisePrice",ChoisePrice);
 		request.setAttribute("Result",AreaList);
 
 		RequestDispatcher rd = request.getRequestDispatcher("SelectVending.jsp");
