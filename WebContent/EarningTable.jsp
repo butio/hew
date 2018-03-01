@@ -109,7 +109,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <button type="submit" name="action" value="table">選択項目を反映して再表示</button>
   <br>
   <button type="submit" name="action" value="chart">グラフで表示</button>
-  <input type="hidden" name="select"value="vending">
+  <input type="hidden" name="select"value="<%=vending%>">
 </form>
 <div id="footer">
 <p class="copy">copyright(C) 2018</p>
