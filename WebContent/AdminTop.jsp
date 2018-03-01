@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<title>Insert title here</title>
+<title>AdminTop</title>
 </head>
 <body>
 <form name="Vending" method="get" action="./SelectVendingServlet">
@@ -16,13 +16,15 @@
 <form name="All" method="get" action="./EarningVending"">
 <input type="hidden"name="action"value="table">
 </form>
+<form name="Stock" method="get" action=""">
+</form>
 <div id="wrapper">
 <div id="header">
 <ul>
-
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
+<li class="stock"><a href="#" onClick="document.Stock.submit();">在庫</a>
 </li>
 </ul>
 </div>
@@ -38,10 +40,13 @@
 <li class="navigation">
 <a href="#" onClick="document.All.submit();">全体</a>
 </li>
+<li class="navigation">
+<a href="#" onClick="document.All.submit();">在庫</a>
+</li>
 </ul>
 </div>
 <div id="footer">
-<p class="copy">copyright 2018</p>
+<p class="copy">copyright(C) 2018</p>
 </div>
 </div>
 </body>
