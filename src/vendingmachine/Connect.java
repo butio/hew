@@ -42,7 +42,6 @@ public class Connect extends HttpServlet {
 
 		String vendingID = request.getParameter("vendingMachineID");
 		session.setAttribute("VENDING_ID",vendingID);
-		System.out.println(vendingID);
 
 		ArrayList<getVendingDB> arrayList=new ArrayList<getVendingDB>();
 

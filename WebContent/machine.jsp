@@ -44,7 +44,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 						        arrayList.get(max).getPrice();
 				%>
 								<td>
-								<img src="image/<%=v.getImg()%>">
+								<img src="image/<%=v.getImg()%>" class="img">
 								<div class="<%=v.getStateCss()%>"><p id="btn_price"><%=v.getState()%></p></div>
 								<p><button id="btn" type='submit' name='drink' value='<%=v.getCount()%>'class="button3 rad1"  ><%=v.getPrice()%></button></p>
 					<%}%>

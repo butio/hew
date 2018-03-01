@@ -49,6 +49,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 	</tr>
 <% } %>
 </table>
+</div>
   <p>購入者の性別を選択</p>
   <select name="sex">
   <option value="" selected>--</option>

@@ -23,7 +23,7 @@ html{
 	padding-right:35px;
 	padding-top:40px;
 	padding-bottom:40px;
-	width: 450px;
+	width: 350px;
 	float: left;
 	left: 50%;
 	position: absolute;
@@ -120,14 +120,15 @@ input[type="date"] {
   position: absolute;
   content: "";
   top: 0;
-  right: -43px;
-  width: 40px;
-  height: 40px;
-  background-color: #06c;
+  right: -49px;
+  width: 42px;
+  height: 42px;
+
+  background-color: #009688;
   background-image: url("../image/calendar.jpeg");
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 input[type="date"]::-webkit-inner-spin-button{
@@ -144,9 +145,10 @@ input[type="date"]::-webkit-calendar-picker-indicator{
   padding: 0;
   width: 36px;
   height: 36px;
-  background: transparent;
+  background: rgba(255, 0, 0, 0.5); // ˆê’U”wŒiF‚ğ•t‚¯‚ÄAŒ©‚â‚·‚­‚µ‚Ü‚·
   color: transparent;
   cursor: pointer;
+}
 }
 
 h3 {

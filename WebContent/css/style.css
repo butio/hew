@@ -83,3 +83,8 @@ button{
 input{
   font-size: 50px;
 }
+
+img.img {
+width: 200px;
+height: 200px;
+}
