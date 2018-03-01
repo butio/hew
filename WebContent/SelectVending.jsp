@@ -35,7 +35,8 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </div>
 <h3 class="infomation">情報を参照する<%=Choise %>を選択してください。</h3>
 <form action ="./EarningVending"  method="get">
-<select name="select">
+<center class="jihanki">
+<select name="select" class="design">
 <% for(ArrayList<String> rec: aryTable){ %>
 	<% int cnt = 0; %>
 	<% for(String data : rec){ %>
@@ -47,11 +48,18 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 		<% } %>
 	<% } %>
 <%} %>
-</select>
-<br>
+</select><script type="text/javascript" src="js/easyselectbox.min.js"></script>
+<script type="text/javascript">
+(function ($) {
+  $('.design-select-box').easySelectBox();
+})(jQuery);
+</script>
+</center>
+<center class="jihanki">
   <input type="hidden" name="choise"value="<%=ChoisePrice %>"></input>
-  <button type="submit" name="action" value="table">票で表示</button>
-  <button type="submit" name="action" value="chart">グラフで表示</button>
+  <button class="button" type="submit" name="action" value="table">票で表示</button>
+  <button class="button" type="submit" name="action" value="chart">グラフで表示</button>
+</center>
 </form>
 <div id="footer">
 <p class="copy">copyright(C) 2018</p>

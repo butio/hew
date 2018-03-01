@@ -37,47 +37,47 @@
 			data.push({//京橋駅
 				lat : '34.695973',
 				lng : '135.534298',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=4'
 			});
 			data.push({//桜之宮東公園
 				lat : '34.700506',
 				lng : '135.535233',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=5'
 			});
 			data.push({//大阪市立東高等学校
 				lat : '34.699874',
 				lng : '135.528476',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=6'
 			});
 			data.push({//大阪ビューホテル 本町
 				lat : '34.684302',
 				lng : '135.498983',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=7'
 			});
 			data.push({//阿波座南公園
 				lat : '34.679779',
 				lng : '135.491644',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=8'
 			});
 			data.push({//久宝公園
 				lat : '34.680204',
 				lng : '135.502822',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=9'
 			});
 			data.push({//野田阪神駅
 				lat : '34.694288',
 				lng : '135.474824',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=10'
 			});
 			data.push({//JR野田駅
 				lat : '34.689052',
 				lng : '135.47491',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=11'
 			});
 			data.push({//大阪福島税務署
 				lat : '34.692304',
 				lng : '135.480059',
-				url : 'http://www.nihonbashi-tokyo.jp/'
+				url : './Connect?vendingMachineID=12'
 			});
 
 			//初期位置に、上記配列の一番初めの緯度経度を格納

@@ -20,7 +20,7 @@ public class Dao {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			this.cn = DriverManager.getConnection(
-					"jdbc:mysql://172.23.16.51:3306/" + DB_NAME + "?characterEncoding=utf8", DB_USER,DB_PASS);
+					"jdbc:mysql://172.23.32.240:3306/" + DB_NAME + "?characterEncoding=utf8", DB_USER,DB_PASS);
 			this.st = this.cn.createStatement();
 		}catch (SQLException e) {
 			throw e;

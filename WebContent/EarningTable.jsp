@@ -35,7 +35,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 %>
 <form action ="./EarningVending"  method="get">
 <div id="earning">
-<table>
+<table border=1>
 	<tr>
 		<td>商品名</td>
 		<td>売上本数</td>
