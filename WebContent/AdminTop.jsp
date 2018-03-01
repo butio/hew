@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<title>Insert title here</title>
+<title>AdminTop</title>
 </head>
 <body>
 <form name="Vending" method="get" action="./SelectVendingServlet">
@@ -40,7 +40,7 @@
 </ul>
 </div>
 <div id="footer">
-<p class="copy">copyright 2018</p>
+<p class="copy">copyright(C) 2018</p>
 </div>
 </div>
 </body>
