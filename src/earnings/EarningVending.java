@@ -112,6 +112,38 @@ public class EarningVending extends HttpServlet {
 		rd.forward(request, response);
 		}else{
 
+			jsp = "Chart.jsp";
+
+			ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
+			if(choise == null){
+				if(date.equals("") && date2.equals("")){
+					System.out.println("");
+					EarningList = Earnings.earningProduct();
+				}else{
+					EarningList = Earnings.earningFixeddateProduct(date,date2);
+				}
+			}else if(choise.equals("vending")){
+				if(date.equals("") && date2.equals("")){
+					System.out.println("");
+					EarningList = Earnings.earningVendingProduct(select);
+				}else{
+					EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
+				}
+			}else if(choise.equals("area")){
+				if(date.equals("") && date2.equals("")){
+					System.out.println("");
+					EarningList = Earnings.earningAreaProduct(select);
+				}else{
+					EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+				}
+			}
+
+
+
+
+			request.setAttribute("PieChart",EarningList);
+			RequestDispatcher rd = request.getRequestDispatcher(jsp);
+			rd.forward(request, response);
 
 
 		}
