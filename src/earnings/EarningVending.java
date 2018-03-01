@@ -44,18 +44,62 @@ public class EarningVending extends HttpServlet {
 		String year2 = request.getParameter("year2");
 		String month2 = request.getParameter("month2");
 		String day2 = request.getParameter("day2");
+		String date ="";
+		String date2 ="";
 
+
+		if(year != null){
+			date = year;
+			if(!month.equals("")){
+				date= date += ("-");
+				date= date += (month);
+				date= date += ("-");
+				date= date += (day);
+			}
+		}
+		System.out.println(date);
+
+		if(year2 != null){
+			date2 = year2;
+			if(!month2.equals("")){
+				date2= date2 += ("-");
+				date2= date2 += (month2);
+				date2= date2 += ("-");
+				date2= date2 += (day2);
+			}
+		}
+		System.out.println(date2);
+
+
+
+
+		if(!action.equals("chart")){
 
 		ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
 
 		System.out.println(select);
 		System.out.println(choise);
 		if(choise == null){
-			EarningList = Earnings.earningProduct();
+			if(date.equals("") && date2.equals("")){
+				System.out.println("");
+				EarningList = Earnings.earningProduct();
+			}else{
+				EarningList = Earnings.earningFixeddateProduct(date,date2);
+			}
 		}else if(choise.equals("vending")){
-			EarningList = Earnings.earningVendingProduct(select);
+			if(date.equals("") && date2.equals("")){
+				System.out.println("");
+				EarningList = Earnings.earningVendingProduct(select);
+			}else{
+				EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
+			}
 		}else if(choise.equals("area")){
-			EarningList = Earnings.earningAreaProduct(select);
+			if(date.equals("") && date2.equals("")){
+				System.out.println("");
+				EarningList = Earnings.earningAreaProduct(select);
+			}else{
+				EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+			}
 		}
 
 
@@ -66,6 +110,11 @@ public class EarningVending extends HttpServlet {
 
 		RequestDispatcher rd = request.getRequestDispatcher(jsp);
 		rd.forward(request, response);
+		}else{
+
+
+
+		}
 
 
 
