@@ -21,6 +21,7 @@
 <div id="wrapper">
 <div id="header">
 <ul>
+<li class="title"><a href="AdminTop.jsp" >自動販売機管理システム</a></li>
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
@@ -52,13 +53,13 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </table>
 </div>
 <center>
-  <p>購入者の性別を選択</p>
+  <p class="buyer">購入者の性別を選択</p>
   <select name="sex" class="design2">
   <option value="" selected>--</option>
   <option value="1">男性</option>
   <option value="2">女性</option>
   </select>
-  <p>購入者の年代を選択</p>
+  <p class="buyer">購入者の年代を選択</p>
   <select name="Age" class="design2">
   <option value="" selected>--</option>
   <option value="1">10代以下</option>
@@ -69,7 +70,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="6">50代</option>
   <option value="7">60代以上</option>
   </select>
-  <p>売上期間の選択</p>
+  <p class="buyer">売上期間の選択</p>
   <select name="year" class="design2">
   <option value="" selected>--</option>
   <% for(int cnt = 2018; cnt >= 1900 ; cnt --) {%>

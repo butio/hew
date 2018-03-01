@@ -1,39 +1,46 @@
 ﻿@charset "utf-8";
 #header{
 	width:100%;
-	height:40px;
+	height:50px;
 	background-color:moccasin;
 }
 #navi h2{
 	font-size:20px;
+}
+.title{
+	position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
+    top: auto; /*上からの距離(positionで指定している場合に適用)*/
+    left: 30px; /*右からの距離(positionで指定している場合に適用)*/
+    font-size:26px;
+    line-height:50px;
 }
 .machine {
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: auto; /*上からの距離(positionで指定している場合に適用)*/
     right: 420px; /*右からの距離(positionで指定している場合に適用)*/
     font-size:18px;
-    line-height:40px;
+    line-height:50px;
 }
 .area {
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: 0; /*上からの距離(positionで指定している場合に適用)*/
     right: 300px; /*右からの距離(positionで指定している場合に適用)*/
     font-size:18px;
-    line-height:40px;
+    line-height:50px;
 }
 .all {
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: 0; /*上からの距離(positionで指定している場合に適用)*/
     right: 200px; /*右からの距離(positionで指定している場合に適用)*/
     font-size:18px;
-    line-height:40px;
+    line-height:50px;
 }
 .stock{
     position: absolute; /*ボックスの配置方法(absoluteは絶対位置配置)*/
     top: 0; /*上からの距離(positionで指定している場合に適用)*/
     right: 100px; /*右からの距離(positionで指定している場合に適用)*/
     font-size:18px;
-    line-height:40px;
+    line-height:50px;
 }
 #navi{
 	height:300px;
@@ -58,6 +65,10 @@
 	margin-left: 40px ;
 	margin-bottom: 45px;
 	font-size:18px;
+}
+.buyer{
+	margin-top:15px;
+	margin-bottom:15px;
 }
 .infomation{
 	margin-top:30px;
@@ -132,4 +143,12 @@ table{
   text-indent: 5px;
   vertical-align: middle;
   width: 60px;
+}
+a{
+    color: DimGray; /*文字色指定*/
+    text-decoration: none; /*テキストの装飾指定(下線、上線など)(noneはなし)*/
+}
+a:hover {
+    text-decoration: none; /*テキストの装飾指定(下線、上線など)(noneはなし)*/
+    font-weight:bold;
 }

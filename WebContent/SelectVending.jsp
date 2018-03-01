@@ -27,6 +27,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <div id="wrapper">
 <div id="header">
 <ul>
+<li class="title"><a href="AdminTop.jsp" >自動販売機管理システム</a></li>
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
