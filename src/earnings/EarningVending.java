@@ -47,6 +47,17 @@ public class EarningVending extends HttpServlet {
 		String date ="";
 		String date2 ="";
 
+		System.out.println(action);
+		System.out.println(select);
+		System.out.println(choise);
+		System.out.println(year);
+		System.out.println(month);
+		System.out.println(day);
+		System.out.println(year2);
+		System.out.println(month2);
+		System.out.println(day2);
+
+
 
 		if(year != null){
 			date = year;
@@ -57,7 +68,6 @@ public class EarningVending extends HttpServlet {
 				date= date += (day);
 			}
 		}
-		System.out.println(date);
 
 		if(year2 != null){
 			date2 = year2;
@@ -68,7 +78,6 @@ public class EarningVending extends HttpServlet {
 				date2= date2 += (day2);
 			}
 		}
-		System.out.println(date2);
 
 
 
@@ -77,11 +86,8 @@ public class EarningVending extends HttpServlet {
 
 		ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
 
-		System.out.println(select);
-		System.out.println(choise);
 		if(choise == null){
 			if(date.equals("") && date2.equals("")){
-				System.out.println("");
 				EarningList = Earnings.earningProduct();
 			}else{
 				EarningList = Earnings.earningFixeddateProduct(date,date2);
@@ -107,7 +113,7 @@ public class EarningVending extends HttpServlet {
 		request.setAttribute("Result",EarningList);
 		request.setAttribute("select",select);
 		request.setAttribute("choise",choise);
-
+		request.setAttribute("action",action);
 
 
 		RequestDispatcher rd = request.getRequestDispatcher(jsp);
