@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<title>AdminTop</title>
+<title>売上</title>
 </head>
 <body>
 <form name="Vending" method="get" action="./SelectVendingServlet">
@@ -14,6 +14,7 @@
 <form name="Area" method="get" action="./SelectArea"">
 </form>
 <form name="All" method="get" action="./EarningVending"">
+<input type="hidden"name="action"value="table">
 </form>
 <form name="Stock" method="get" action=""">
 </form>
@@ -50,14 +51,18 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <% } %>
 </table>
 </div>
+<<<<<<< HEAD
+=======
+<center>
+>>>>>>> branch 'master' of https://github.com/butio/hew.git
   <p>購入者の性別を選択</p>
-  <select name="sex">
+  <select name="sex" class="design2">
   <option value="" selected>--</option>
   <option value="1">男性</option>
   <option value="2">女性</option>
   </select>
   <p>購入者の年代を選択</p>
-  <select name="Age">
+  <select name="Age" class="design2">
   <option value="" selected>--</option>
   <option value="1">10代以下</option>
   <option value="2">10代</option>
@@ -68,49 +73,49 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="7">60代以上</option>
   </select>
   <p>売上期間の選択</p>
-  <select name="year">
+  <select name="year" class="design2">
   <option value="" selected>--</option>
   <% for(int cnt = 2018; cnt >= 1900 ; cnt --) {%>
   <option value="<%=cnt %>"><%=cnt %></option>
   <%} %>
   </select>
-    <select name="month">
+    <select name="month" class="design3">
       <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
   <option value="<%=String.format("%02d",cnt) %>"><%=cnt %></option>
   <%} %>
   </select>
-      <select name="day">
+      <select name="day" class="design3">
         <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 31 ; cnt ++) {%>
   <option value="<%=String.format("%02d",cnt) %>"><%=cnt %></option>
   <%} %>
   </select>
   ～
-    <select name="year2">
+    <select name="year2" class="design2">
       <option value="" selected>--</option>
   <% for(int cnt = 2018; cnt >= 1900 ; cnt --) {%>
   <option value="<%=cnt %>"><%=cnt %></option>
   <%} %>
   </select>
-    <select name="month2">
+    <select name="month2" class="design3">
       <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
   <option value="-<%=String.format("%02d",cnt) %>"><%=cnt %></option>
   <%} %>
   </select>
-      <select name="day2">
+      <select name="day2" class="design3">
         <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 31 ; cnt ++) {%>
   <option value="-<%=String.format("%02d",cnt) %>"><%=cnt %></option>
   <%} %>
-
   </select>
-<br>
-  <button type="submit" name="action" value="table">選択項目を反映して再表示</button>
-  <br>
-  <button type="submit" name="action" value="chart">グラフで表示</button>
-  <input type="hidden" name="select"value="<%=vending%>">
+</center>
+<center class="item">
+<button class="button" type="submit" name="table" value="table">選択項目を反映して再表示</button>
+<button class="button" type="submit" name="chart" value="chart">グラフで表示</button>
+<input type="hidden" name="select"value="<%=vending%>">
+</center>
 </form>
 <div id="footer">
 <p class="copy">copyright(C) 2018</p>

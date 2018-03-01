@@ -63,11 +63,22 @@
 	margin-top:30px;
 	text-align:center;
 }
-.earning{
+#earning{
 	margin-top:20px;
+	margin:30px;
+	padding:20px;
+	border:5px solid maroon;
+	background-color:	;
+}
+table{
+	width:100%;
 }
 .jihanki{
 	margin-top:40px;
+	margin-bottom:30px;
+}
+.item{
+	margin-top:30px;
 	margin-bottom:30px;
 }
 .button{
@@ -96,3 +107,32 @@
   vertical-align: middle;
   width: 190px;
 }
+<<<<<<< HEAD
+=======
+.design2{
+  background: #FFFDF4;
+  border: 2px solid #67c5ff;
+  border-radius: 5px;
+  color: #0C2245;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  text-indent: 5px;
+  vertical-align: middle;
+  width: 100px;
+}
+.design3{
+  background: #FFFDF4;
+  border: 2px solid #67c5ff;
+  border-radius: 5px;
+  color: #0C2245;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  text-indent: 5px;
+  vertical-align: middle;
+  width: 60px;
+}
+>>>>>>> branch 'master' of https://github.com/butio/hew.git

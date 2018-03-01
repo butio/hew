@@ -12,7 +12,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<title>Insert title here</title>
+<title>自販機・エリア</title>
 </head>
 <body>
 <form name="Vending" method="get" action="./SelectVendingServlet">
@@ -20,6 +20,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <form name="Area" method="get" action="./SelectArea"">
 </form>
 <form name="All" method="get" action="./EarningVending"">
+<input type="hidden"name="action"value="table">
 </form>
 <form name="Stock" method="get" action=""">
 </form>
@@ -48,12 +49,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 		<% } %>
 	<% } %>
 <%} %>
-</select><script type="text/javascript" src="js/easyselectbox.min.js"></script>
-<script type="text/javascript">
-(function ($) {
-  $('.design-select-box').easySelectBox();
-})(jQuery);
-</script>
+</select>
 </center>
 <center class="jihanki">
   <input type="hidden" name="choise"value="<%=ChoisePrice %>"></input>
