@@ -87,9 +87,19 @@ public class EarningVending extends HttpServlet {
 				EarningList = Earnings.earningFixeddateProduct(date,date2);
 			}
 		}else if(choise.equals("vending")){
-			EarningList = Earnings.earningVendingProduct(select);
+			if(date.equals("") && date2.equals("")){
+				System.out.println("");
+				EarningList = Earnings.earningVendingProduct(select);
+			}else{
+				EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
+			}
 		}else if(choise.equals("area")){
-			EarningList = Earnings.earningAreaProduct(select);
+			if(date.equals("") && date2.equals("")){
+				System.out.println("");
+				EarningList = Earnings.earningAreaProduct(select);
+			}else{
+				EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+			}
 		}
 
 
