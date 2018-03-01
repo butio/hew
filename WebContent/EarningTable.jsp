@@ -57,7 +57,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="1">男性</option>
   <option value="2">女性</option>
   </select>
-  <p>購入者の年代を選択</p>
+  <p>購入者の性別を選択</p>
   <select name="Age" class="design2">
   <option value="" selected>--</option>
   <option value="1">10代以下</option>
