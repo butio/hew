@@ -11,13 +11,13 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
 %>
 
-<form>
+<form action ="./EarningVending"  method="get">
+
 
 <table>
 	<tr>
 		<td>商品名</td>
 		<td>売上本数</td>
-
 	</tr>
 		<!-- データベースの中身を表示する -->
 		<% for(ArrayList<String> rec: aryTable){ %>
@@ -28,8 +28,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 	</tr>
 <% } %>
 </table>
-
-
   <p>購入者の年代を選択</p>
   <select name="Age">
   <option value="" selected>--</option>
@@ -40,43 +38,27 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="5">40代</option>
   <option value="6">50代</option>
   <option value="7">60代以上</option>
-
-
   </select>
   <p>売上期間の選択</p>
-
   <select name="year">
   <option value="" selected>--</option>
   <% for(int cnt = 2018; cnt >= 1900 ; cnt --) {%>
-
   <option value="<%=cnt %>"><%=cnt %></option>
-
   <%} %>
-
   </select>
     <select name="month">
       <option value="" selected>--</option>
-
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
-
   <option value="<%=String.format("%02d",cnt) %>"><%=cnt %></option>
-
   <%} %>
-
   </select>
       <select name="day">
         <option value="" selected>--</option>
-
   <% for(int cnt = 1; cnt <= 31 ; cnt ++) {%>
-
   <option value="<%=String.format("%02d",cnt) %>"><%=cnt %></option>
-
   <%} %>
-
   </select>
-
   ～
-
     <select name="year2">
       <option value="" selected>--</option>
 
