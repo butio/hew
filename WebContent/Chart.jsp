@@ -22,8 +22,8 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
       function drawChart() {
 
- 		var data1;
- 		var data2;
+ 		var $data1;
+ 		var $data2;
         var data = google.visualization.arrayToDataTable([
           ['商品', 'Hours per Day'],
 
@@ -31,12 +31,14 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   		<% int cnt = 0;%>
   			<% for(String data : rec){ %>
   			<%if(cnt == 0){%>
-  				data1 = <%=data %>;
+  				data1 = '<%=data %>';
+  				<% cnt ++;%>
   				<% }else{ %>
   				data2 = <%=data%>;
   				<% } %>
-  				document.write(["'"+ data1 + "'",+ data2 +],
   			<% } %>
+			[%data1.repalace(%data1,$data1),%data2],
+
   	<% } %>
 
   		var options = {
