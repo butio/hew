@@ -50,12 +50,12 @@ public class EarningVending extends HttpServlet {
 
 		System.out.println(select);
 		System.out.println(choise);
-		if(choise.equals("vending")){
+		if(choise == null){
+			EarningList = Earnings.earningProduct();
+		}else if(choise.equals("vending")){
 			EarningList = Earnings.earningVendingProduct(select);
 		}else if(choise.equals("area")){
 			EarningList = Earnings.earningAreaProduct(select);
-		}else{
-			EarningList = Earnings.earningProduct();
 		}
 
 
