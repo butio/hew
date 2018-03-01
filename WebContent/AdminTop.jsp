@@ -13,7 +13,7 @@
 </form>
 <form name="Area" method="get" action="./SelectArea"">
 </form>
-<form name="All" method="get" action="./EarningAll"">
+<form name="All" method="get" action="./EarningVending"">
 </form>
 <div id="wrapper">
 <div id="header">
