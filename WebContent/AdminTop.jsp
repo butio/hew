@@ -15,6 +15,8 @@
 </form>
 <form name="All" method="get" action="./EarningVending"">
 <input type="hidden"name="action"value="table">
+<input type="hidden"name="choise"value="table">
+
 </form>
 <form name="Stock" method="get" action="">
 </form>

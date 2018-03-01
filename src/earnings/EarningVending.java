@@ -105,7 +105,9 @@ public class EarningVending extends HttpServlet {
 
 
 		request.setAttribute("Result",EarningList);
-		request.setAttribute("vending",select);
+		request.setAttribute("select",select);
+		request.setAttribute("choise",choise);
+
 
 
 		RequestDispatcher rd = request.getRequestDispatcher(jsp);

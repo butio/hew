@@ -35,7 +35,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   				<% }else{ %>
   				data2 = <%=data%>;
   				<% } %>
-  				['data1',data2],
+  				document.write(["'"+ data1 + "'",+ data2 +],
   			<% } %>
   	<% } %>
 
