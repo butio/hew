@@ -75,6 +75,7 @@ button{
   margin-left: 100px;
   float: right;
 }
+
 .koukoku{
   width:500px;
   float: left;
@@ -85,6 +86,7 @@ input{
 }
 
 img.img {
-width: 200px;
-height: 200px;
+	width: 200px;   /* Å¶A */
+	height: 200px
+
 }
