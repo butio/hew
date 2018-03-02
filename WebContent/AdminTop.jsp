@@ -11,12 +11,12 @@
 <body>
 <form name="Vending" method="get" action="./SelectVendingServlet">
 </form>
-<form name="Area" method="get" action="./SelectArea"">
+<form name="Area" method="get" action="./SelectArea">
 </form>
-<form name="All" method="get" action="./EarningVending"">
+<form name="All" method="get" action="./EarningVending">
 <input type="hidden"name="action"value="">
 </form>
-<form name="Stock" method="get" action="">
+<form name="Stock" method="get" action="./StockCall">
 </form>
 <div id="wrapper">
 <div id="header">
@@ -41,7 +41,7 @@
 <a href="#" onClick="document.All.submit();">全体</a>
 </li>
 <li class="navigation">
-<a href="#" onClick="document.All.submit();">在庫</a>
+<a href="#" onClick="document.Stock.submit();">在庫</a>
 </li>
 </ul>
 </div>

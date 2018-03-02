@@ -5,18 +5,12 @@ public class StockDB {
 	private String place;
 	private String productName;
 	private int price;
-	private	int stock;
+	private	String stock;
 	private	int maxStock;
 	private String receiptdate;
+	boolean nullFlg;
 
 	public StockDB(){
-		this.areaPlace = "";
-		this.place = "";
-		this.productName = "";
-		this.price = 0;
-		this.stock = 0;
-		this.maxStock = 0;
-		this.receiptdate = "";
 	}
 
 	public void setArea(String _area){
@@ -35,8 +29,12 @@ public class StockDB {
 		this.price = _price;
 	}
 
-	public void setStock(int _stock){
+	public void setStock(String _stock){
 		this.stock = _stock;
+		if(stock.equals("")){
+			this.nullFlg = true;
+		}
+
 	}
 
 	public void setMaxStock(int _maxStock){
@@ -64,7 +62,7 @@ public class StockDB {
 	    return this.price;
 	}
 
-	public int getStock(){
+	public String getStock(){
 		return this.stock;
 	}
 
@@ -76,7 +74,9 @@ public class StockDB {
 		return this.receiptdate;
 	}
 
-
+	public boolean getNull(){
+		return this.nullFlg;
+	}
 
 
 }

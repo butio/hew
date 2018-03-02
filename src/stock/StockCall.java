@@ -38,6 +38,7 @@ public class StockCall extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		ArrayList<StockDB> arrayList=new ArrayList<StockDB>();
+		StockDB	flg = new StockDB();
 
 		Dao dao = null;
 		ResultSet rs = null;
@@ -55,7 +56,7 @@ public class StockCall extends HttpServlet {
 				s.setArea(rs.getString("area.area_place"));
 				s.setPlace(rs.getString("vending.place"));
 				s.setProductName(rs.getString("product.name"));
-				s.setStock(rs.getInt("stock.stock"));
+				s.setStock(rs.getString("stock.stock"));
 				s.setMaxStock(rs.getInt("stock.max_stock"));
 				s.setReceiptdate(rs.getString("stock.receiptdate"));
 				arrayList.add(s);

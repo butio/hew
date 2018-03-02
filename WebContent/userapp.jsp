@@ -61,7 +61,7 @@
 		</div>
 
       <div class="submit">
-        <input type="submit" value="送信" id="button-blue"  onclick="window.resizeTo(500,300)"/>
+        <input type="submit" value="送信" id="button-blue"  />
         <div class="ease"></div>
       </div>
     </form>
