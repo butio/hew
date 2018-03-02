@@ -44,7 +44,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 %>
 <form action ="./EarningVending"  method="get">
 <div id="earning">
-<table border=1>
+<table>
 	<tr>
 		<td>商品名</td>
 		<td>売上本数</td>
@@ -95,6 +95,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="<%=cnt %>"><%=cnt %></option>
   <%} %>
   </select>
+  
     <select name="month" class="design3">
       <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
