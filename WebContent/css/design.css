@@ -155,7 +155,7 @@ a:hover {
     text-decoration: none; /*テキストの装飾指定(下線、上線など)(noneはなし)*/
     font-weight:bold;
 }
-
-.table td{
-	border-bottom: 1px solid black;
+table td{
+		border-bottom: 1px solid black;
+		padding: 5px;
 }

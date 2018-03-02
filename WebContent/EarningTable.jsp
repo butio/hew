@@ -31,14 +31,19 @@
 </div>
     <%@ page import="java.util.ArrayList" %>
 <%
-String choise = request.getParameter("choise");
+
+
 String select = request.getParameter("select");
-String action = request.getParameter("action");
+String Error = request.getParameter("Error");
+
+
+System.out.println(request.getParameter("message"));
 ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
+
 %>
 <form action ="./EarningVending"  method="get">
 <div id="earning">
-<table border=1>
+<table>
 	<tr>
 		<td>商品名</td>
 		<td>売上本数</td>
@@ -46,8 +51,16 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 		<!-- データベースの中身を表示する -->
 		<% for(ArrayList<String> rec: aryTable){ %>
 	<tr>
+		<%int cnt = 0; %>
 		<% for(String data : rec){ %>
+		<% if(cnt == 0){%>
+		<!-- 商品名 -->
 		<td><%=data %></td>
+		<%}else{ %>
+		<!-- 売上数 -->
+		<td><%=data %></td>
+		<%} %>
+
 		<% } %>
 	</tr>
 <% } %>
@@ -72,6 +85,9 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="7">60代以上</option>
   </select>
   <p class="buyer">売上期間の選択</p>
+  <%if(Error != ""){ %>
+  	<%=Error %>
+  <%} %>
   <select name="year" class="design2">
   <option value="" selected>--</option>
   <% for(int cnt = 2018; cnt >= 1900 ; cnt --) {%>
