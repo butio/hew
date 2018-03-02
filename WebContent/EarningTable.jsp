@@ -94,6 +94,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="<%=cnt %>"><%=cnt %></option>
   <%} %>
   </select>
+  
     <select name="month" class="design3">
       <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
