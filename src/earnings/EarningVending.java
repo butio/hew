@@ -52,6 +52,10 @@ public class EarningVending extends HttpServlet {
 		String Message = ("aaaaaa");
 
 
+
+		ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
+
+
 		System.out.println(action);
 		System.out.println(select);
 		System.out.println(choise);
@@ -113,7 +117,8 @@ public class EarningVending extends HttpServlet {
 
 		if(!action.equals("chart")){
 
-		ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
+		EarningList = new ArrayList<ArrayList<String>>();
+
 
 		if(choise == null){
 			if(date.equals("") && date2.equals("")){
@@ -123,14 +128,12 @@ public class EarningVending extends HttpServlet {
 			}
 		}else if(choise.equals("vending")){
 			if(date.equals("") && date2.equals("")){
-				System.out.println("");
 				EarningList = Earnings.earningVendingProduct(select);
 			}else{
 				EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
 			}
 		}else if(choise.equals("area")){
 			if(date.equals("") && date2.equals("")){
-				System.out.println("");
 				EarningList = Earnings.earningAreaProduct(select);
 			}else{
 				EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
@@ -138,15 +141,6 @@ public class EarningVending extends HttpServlet {
 		}
 
 
-		Earnings ErM = new Earnings();
-
-		ErM.setErrorMes(Message);
-
-		request.setAttribute("ErM",ErM);
-		request.setAttribute("Result",EarningList);
-		request.setAttribute("select",select);
-		request.setAttribute("choise",choise);
-		request.setAttribute("action",action);
 
 		System.out.println(Message);
 		System.out.println(jsp);
@@ -158,7 +152,7 @@ public class EarningVending extends HttpServlet {
 
 			jsp = "Chart.jsp";
 
-			ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
+			EarningList = new ArrayList<ArrayList<String>>();
 			if(choise == null){
 				if(date.equals("") && date2.equals("")){
 					System.out.println("");
@@ -183,12 +177,17 @@ public class EarningVending extends HttpServlet {
 			}
 
 
-
-
-			request.setAttribute("PieChart",EarningList);
-
-
 		}
+
+
+
+		request.setAttribute("PieChart",EarningList);
+		request.setAttribute("Result",EarningList);
+		request.setAttribute("Error",Message);
+		request.setAttribute("select",select);
+		request.setAttribute("select",select);
+		request.setAttribute("choise",choise);
+		request.setAttribute("action",action);
 
 		RequestDispatcher rd = request.getRequestDispatcher(jsp);
 		rd.forward(request, response);
