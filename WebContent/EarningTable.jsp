@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="earnings.Earnings" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,10 +32,15 @@
 </div>
     <%@ page import="java.util.ArrayList" %>
 <%
-String choise = request.getParameter("choise");
+
+
 String select = request.getParameter("select");
-String action = request.getParameter("action");
+String Message = request.getParameter("message");
+
+
+System.out.println(request.getParameter("message"));
 ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
+
 %>
 <form action ="./EarningVending"  method="get">
 <div id="earning">
@@ -72,6 +78,9 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="7">60代以上</option>
   </select>
   <p class="buyer">売上期間の選択</p>
+  <%if(Message != ""){ %>
+  	<%=Message %>
+  <%} %>
   <select name="year" class="design2">
   <option value="" selected>--</option>
   <% for(int cnt = 2018; cnt >= 1900 ; cnt --) {%>

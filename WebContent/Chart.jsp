@@ -1,21 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-
-ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("PieChart");
-
-
+	ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("PieChart");
 %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -26,23 +24,21 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
  		var $data2;
         var data = google.visualization.arrayToDataTable([
           ['商品', 'Hours per Day'],
+  		<%for(ArrayList<String> rec: aryTable){%>
+  		<%int cnt = 0;%>
+  		<%for(String data : rec){%>
+  		<%if(cnt == 0){%>
+  		['<%=data%>',
+  		 <%cnt ++;%>
+  		<%}else{%>
+  		<%=data%>],
+  		<%}%>
 
-  		<% for(ArrayList<String> rec: aryTable){ %>
-  		<% int cnt = 0;%>
-  			<% for(String data : rec){ %>
-  			<%if(cnt == 0){%>
-  				data1 = '<%=data %>';
-  				<% cnt ++;%>
-  				<% }else{ %>
-  				data2 = <%=data%>;
-  				<% } %>
-  			<% } %>
-			[%data1.repalace(%data1,$data1),%data2],
-
-  	<% } %>
-
+  		<%}%>
+  <%}%>
+  ])
   		var options = {
-          title: 'My Daily Activities'
+          title: '直近三ヶ月での、全体の商品の売上割合'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -100,10 +96,10 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
 </script>
 
-  </head>
-  <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</head>
+<body>
+	<div id="piechart" style="width: 900px; height: 500px;"></div>
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
 
-  </body>
+</body>
 </html>

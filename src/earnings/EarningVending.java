@@ -30,6 +30,7 @@ public class EarningVending extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 
@@ -39,13 +40,17 @@ public class EarningVending extends HttpServlet {
 		String action = request.getParameter("action");
 		String select = request.getParameter("select");
 		String year = request.getParameter("year");
+		int intyear = 0;
+		int intyear2 = 0;
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
 		String year2 = request.getParameter("year2");
 		String month2 = request.getParameter("month2");
 		String day2 = request.getParameter("day2");
-		String date ="";
-		String date2 ="";
+		String date = "";
+		String date2 = "";
+		String Message = ("aaaaaa");
+
 
 		System.out.println(action);
 		System.out.println(select);
@@ -57,26 +62,50 @@ public class EarningVending extends HttpServlet {
 		System.out.println(month2);
 		System.out.println(day2);
 
-
-
-		if(year != null){
-			date = year;
-			if(!month.equals("")){
-				date= date += ("-");
-				date= date += (month);
-				date= date += ("-");
-				date= date += (day);
+		if((year != "" && month != "" && day !="") || (year != "" && month == "" && day =="")){
+			if(year != null){
+				date = year;
+				if(year2 == "" && month =="" && day ==""){
+					intyear= Integer.parseInt(year) - 1;
+					year = Integer.toString(intyear);
+					date= year;
+					date= date += ("-");
+					date= date += ("12");
+					date= date += ("-");
+					date= date += ("31");
+				}
+				if(!month.equals("")){
+					date= date += ("-");
+					date= date += (month);
+					date= date += ("-");
+					date= date += (day);
+				}
 			}
+		}else if(!(year == "" && month == "" && day =="")){
+			Message = ("期間の選択形式が誤っていましたので、デフォルト表示します。");
 		}
 
-		if(year2 != null){
-			date2 = year2;
-			if(!month2.equals("")){
-				date2= date2 += ("-");
-				date2= date2 += (month2);
-				date2= date2 += ("-");
-				date2= date2 += (day2);
+		if((year2 != "" && month2 != "" && day2 !="") || (year2 != "" && month2 == "" && day2 =="")){
+			if(year2 != null){
+				date2 = year2;
+				if(year == "" && month2 =="" && day2 ==""){
+					intyear2= Integer.parseInt(year2) + 1;
+					year2 = Integer.toString(intyear2);
+					date2= year2;
+					date2= date2 += ("-");
+					date2= date2 += ("01");
+					date2= date2 += ("-");
+					date2= date2 += ("01");
+				}
+				if(!month2.equals("")){
+					date2= date2 += ("-");
+					date2= date2 += (month2);
+					date2= date2 += ("-");
+					date2= date2 += (day2);
+				}
 			}
+		}else if(!(year2 == "" && month2 == "" && day2 =="")){
+			Message = ("期間の選択形式が誤っていたので、デフォルト表示します。");
 		}
 
 
@@ -109,15 +138,22 @@ public class EarningVending extends HttpServlet {
 		}
 
 
+		Earnings ErM = new Earnings();
 
+		ErM.setErrorMes(Message);
+
+		request.setAttribute("ErM",ErM);
 		request.setAttribute("Result",EarningList);
 		request.setAttribute("select",select);
 		request.setAttribute("choise",choise);
 		request.setAttribute("action",action);
 
+		System.out.println(Message);
+		System.out.println(jsp);
 
-		RequestDispatcher rd = request.getRequestDispatcher(jsp);
-		rd.forward(request, response);
+
+
+
 		}else{
 
 			jsp = "Chart.jsp";
@@ -150,13 +186,12 @@ public class EarningVending extends HttpServlet {
 
 
 			request.setAttribute("PieChart",EarningList);
-			RequestDispatcher rd = request.getRequestDispatcher(jsp);
-			rd.forward(request, response);
 
 
 		}
 
-
+		RequestDispatcher rd = request.getRequestDispatcher(jsp);
+		rd.forward(request, response);
 
 
 	}

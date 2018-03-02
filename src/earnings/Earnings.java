@@ -9,7 +9,22 @@ import Dao.Dao;
 
 public class Earnings {
 
+	private String ErrorMes;
 
+	Earnings(){
+		this.ErrorMes = "";
+	}
+
+
+	public String getErrorMes() {
+		return ErrorMes;
+	}
+
+
+
+	public void setErrorMes(String errorMes) {
+		ErrorMes = errorMes;
+	}
 
 
 
@@ -99,7 +114,7 @@ public class Earnings {
 			" FROM earnings e" +
 			" INNER JOIN product p ON p.id = e.product_id" +
 			" INNER JOIN member m ON m.id = e.member_id" +
-			" WHERE date >= '"+ date + "' AND <='"+ strdate +"'" +
+			" WHERE date >= '"+ date + "' AND date <='"+ strdate +"'" +
 			" GROUP BY p.name" +
 			" ORDER BY COUNT(*) DESC;";
 
@@ -451,6 +466,8 @@ public class Earnings {
 		return tbl;
 
 	}
+
+
 
 
 
