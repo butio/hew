@@ -155,7 +155,7 @@ public class Earnings {
         String sql = "";
 
         if(age == "60"){
-        	sql = "SELECT p.name, COUNT( * ) , age"+
+        	sql = "SELECT p.name, COUNT( * ) as c_earnings, age"+
         			" FROM earnings e"+
         			" INNER JOIN product p ON p.id = e.product_id"+
         			" INNER JOIN member m ON m.id = e.member_id"+
@@ -182,12 +182,12 @@ public class Earnings {
     				" WHERE date >= '"+ strdate + "'" +
     				" AND age >= "+ age + "" +
     				" GROUP BY p.name"+
-    				" ORDER BY COUNT( * ) DESC";
+    				" ORDER BY COUNT( * ) DESC;";
 
         }else{
 
 
-        	sql = "SELECT p.name, COUNT( * )"+
+        	sql = "SELECT p.name, COUNT( * ) as c_earnings"+
         		" FROM earnings e"+
         		" INNER JOIN product p ON p.id = e.product_id"+
         		" INNER JOIN member m ON m.id = e.member_id"+
@@ -214,9 +214,10 @@ public class Earnings {
 				" WHERE date >= '"+ strdate + "'" +
 				" AND age <= "+ age + "" +
 				" GROUP BY p.name"+
-				" ORDER BY COUNT( * ) DESC";
+				" ORDER BY COUNT( * ) DESC;";
         }
-
+        System.out.println("年代表示");
+        System.out.println(sql);
 
 		ArrayList<ArrayList<String>> tbl = new ArrayList<ArrayList<String>>();
 
@@ -234,7 +235,9 @@ public class Earnings {
 				ArrayList<String>rec = new ArrayList<String>();
 
 				rec.add(rs.getString("p.name"));
-				rec.add(rs.getString("COUNT(*)"));
+				System.out.println(rs.getString("p.name"));
+				rec.add(rs.getString("c_earnings"));
+				System.out.println(rs.getString("c_earnings"));
 				tbl.add(rec);
 
 
