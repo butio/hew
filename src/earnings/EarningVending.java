@@ -31,14 +31,14 @@ public class EarningVending extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
-
 
 		String jsp =("EarningTable.jsp");
 		String choise = request.getParameter("choise");
 		String action = request.getParameter("action");
 		String select = request.getParameter("select");
+		String age = request.getParameter("Age");
+		String sex = request.getParameter("sex");
+
 		String year = request.getParameter("year");
 		int intyear = 0;
 		int intyear2 = 0;
@@ -49,7 +49,7 @@ public class EarningVending extends HttpServlet {
 		String day2 = request.getParameter("day2");
 		String date = "";
 		String date2 = "";
-		String Message = ("aaaaaa");
+		String Message = ("");
 
 
 
@@ -86,7 +86,7 @@ public class EarningVending extends HttpServlet {
 				}
 			}
 		}else if(!(year == "" && month == "" && day =="")){
-			Message = ("期間の選択形式が誤っていましたので、デフォルト表示します。");
+			Message = ("期間の選択形式が誤っています。期間の選択は反映せずに表示します。");
 		}
 
 		if((year2 != "" && month2 != "" && day2 !="") || (year2 != "" && month2 == "" && day2 =="")){
@@ -109,7 +109,7 @@ public class EarningVending extends HttpServlet {
 				}
 			}
 		}else if(!(year2 == "" && month2 == "" && day2 =="")){
-			Message = ("期間の選択形式が誤っていたので、デフォルト表示します。");
+			Message = ("期間の選択形式が誤っています。期間の選択は反映せずに表示します。");
 		}
 
 
@@ -122,21 +122,67 @@ public class EarningVending extends HttpServlet {
 
 		if(choise == null){
 			if(date.equals("") && date2.equals("")){
+				if((sex == "" && age == "") || (sex == null && age == null)){
 				EarningList = Earnings.earningProduct();
-			}else{
+				}else if(sex == "" && age != ""){
+					EarningList = Earnings.earningAgeProduct(age);
+				}else if(sex != "" && age == ""){
+					EarningList = Earnings.earningSexProduct(sex);
+				}
+//				}else{
+//					EarningList = Earnings.earningSexAgeProduct(sex);
+//				}
+			}else if(sex == "" && age == ""){
 				EarningList = Earnings.earningFixeddateProduct(date,date2);
+			}else if(sex == "" && age != ""){
+				EarningList = Earnings.earningAgeFixeddateProduct(date,date2,age);
+			}else if(sex != "" && age == ""){
+				EarningList = Earnings.earningSexFixeddateProduct(date,date2,age);
 			}
+//			}else{
+//				EarningList = Earnings.earningSexAgeFixeddateProduct(date,date2,age);
+//			}
 		}else if(choise.equals("vending")){
 			if(date.equals("") && date2.equals("")){
+				if((sex == "" && age == "") || (sex == null && age == null)){
 				EarningList = Earnings.earningVendingProduct(select);
-			}else{
+				}else if(sex == "" && age != ""){
+					EarningList = Earnings.earningAgeVendingProduct(select,age);
+				}else if(sex != "" && age == ""){
+					EarningList = Earnings.earningSexVendingProduct(select,sex);
+				}else{
+					EarningList = Earnings.earningSexAgeVendingProduct(select,sex,age);
+				}
+			}else if(sex == "" && age == ""){
 				EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
+			}else if(sex == "" && age != ""){
+				EarningList = Earnings.earningAgeVendingFixeddateProduct(select,date,date2,age);
+			}else if(sex != "" && age == ""){
+				EarningList = Earnings.earningSexVendingFixeddateProduct(select,date,date2,sex);
+			}else{
+				EarningList = Earnings.earningSexAgeVendingFixeddateProduct(select,date,date2,sex,age);
 			}
+
 		}else if(choise.equals("area")){
 			if(date.equals("") && date2.equals("")){
+				if((sex == "" && age == "") || (sex == null && age == null)){
 				EarningList = Earnings.earningAreaProduct(select);
-			}else{
+				}else if(sex == "" && age != ""){
+					EarningList = Earnings.earningAgeAreaProduct(select,age);
+				}else if(sex != "" && age == ""){
+					EarningList = Earnings.earningSexAreaProduct(select,sex);
+				}else{
+					EarningList = Earnings.earningSexAgeAreaProduct(select,sex,age);
+				}
+
+			}else if(sex == "" && age == ""){
 				EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+			}else if(sex == "" && age != ""){
+				EarningList = Earnings.earningAgeAreaFixeddateProduct(select,date,date2,age);
+			}else if(sex != "" && age == ""){
+				EarningList = Earnings.earningSexAreaFixeddateProduct(select,date,date2,sex);
+			}else{
+				EarningList = Earnings.earningSexAgeAreaFixeddateProduct(select,date,date2,sex,age);
 			}
 		}
 
@@ -178,19 +224,22 @@ public class EarningVending extends HttpServlet {
 
 
 		}
+		Earnings E = new Earnings();
+
+		E.setMes(Message);
 
 
 
 		request.setAttribute("PieChart",EarningList);
 		request.setAttribute("Result",EarningList);
-		request.setAttribute("Error",Message);
+		request.setAttribute("Error",E);
 		request.setAttribute("select",select);
-		request.setAttribute("select",select);
-		request.setAttribute("choise",choise);
-		request.setAttribute("action",action);
+
+
 
 		RequestDispatcher rd = request.getRequestDispatcher(jsp);
 		rd.forward(request, response);
+
 
 
 	}
@@ -200,6 +249,11 @@ public class EarningVending extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+
+		doGet(request,response);
+
 	}
 
 }

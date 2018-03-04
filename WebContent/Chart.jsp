@@ -50,20 +50,20 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
           title: '直近三ヶ月での、全体の商品の売上割合'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
 
         chart.draw(data, options);
       }
     </script>
 <body>
-<form name="Vending" method="get" action="./SelectVendingServlet">
+<form name="Vending" method="post" action="./SelectVendingServlet">
 </form>
-<form name="Area" method="get" action="./SelectArea"">
+<form name="Area" method="post" action="./SelectArea"">
 </form>
-<form name="All" method="get" action="./EarningVending"">
-<input type="hidden"name="action"value="table">
+<form name="All" method="post" action="./EarningVending"">
+<input type="hidden"name="action"value="chart">
 </form>
-<form name="Stock" method="get" action=""">
+<form name="Stock" method="post" action=""">
 </form>
 <div id="wrapper">
 <div id="header">
@@ -77,10 +77,10 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </ul>
 </div>
 
-<form action ="./EarningVending"  method="get">
+<form action ="./EarningVending"  method="post">
 <div id="earning">
 
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="chart" style="width: 900px; height: 500px;"></div>
 
 </div>
 <center>
