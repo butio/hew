@@ -44,19 +44,28 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </li>
 </ul>
 </div>
+    <%@ page import="java.util.ArrayList" %>
+<%
+String select = request.getParameter("select");
+String Error = request.getParameter("Error");
+System.out.println(request.getParameter("message"));
+ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
+%>
+<form action ="./EarningVending"  method="get">
 
 <form action ="./EarningVending"  method="post">
 <div id="earning">
 <table class="type">
 	<thead>
 	<tr>
-		<td>商品名</td>
-		<td>売上本数</td>
+		<th>商品名</th>
+		<th>売上本数</th>
 	</tr>
 	</thead>
 		<!-- データベースの中身を表示する -->
 	<tbody>
 		<% for(ArrayList<String> rec: aryTable){ %>
+
 	<tr>
 		<%int cnt = 0; %>
 		<% for(String data : rec){ %>
@@ -65,7 +74,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 		<td><%=data %></td>
 		<%}else{ %>
 		<!-- 売上数 -->
-		<td><%=data %></td>
+		<td><%=data %>></td>
 		<%} %>
 
 		<% } %>
