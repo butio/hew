@@ -15,14 +15,14 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <title>自販機・エリア</title>
 </head>
 <body>
-<form name="Vending" method="get" action="./SelectVendingServlet">
+<form name="Vending" method="post" action="./SelectVendingServlet">
 </form>
-<form name="Area" method="get" action="./SelectArea"">
+<form name="Area" method="post" action="./SelectArea"">
 </form>
-<form name="All" method="get" action="./EarningVending"">
+<form name="All" method="post" action="./EarningVending"">
 <input type="hidden"name="action"value="table">
 </form>
-<form name="Stock" method="get" action=""">
+<form name="Stock" method="post" action=""">
 </form>
 <div id="wrapper">
 <div id="header">
@@ -36,7 +36,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </ul>
 </div>
 <h3 class="infomation">情報を参照する<%=Choise %>を選択してください。</h3>
-<form action ="./EarningVending"  method="get">
+<form action ="./EarningVending"  method="post">
 <center class="jihanki">
 <select name="select" class="design">
 <% for(ArrayList<String> rec: aryTable){ %>

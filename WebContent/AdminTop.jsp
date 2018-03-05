@@ -9,19 +9,20 @@
 <title>AdminTop</title>
 </head>
 <body>
-<form name="Vending" method="get" action="./SelectVendingServlet">
+<form name="Vending" method="post" action="./SelectVendingServlet">
 </form>
-<form name="Area" method="get" action="./SelectArea">
+<form name="Area" method="post" action="./SelectArea">
 </form>
-<form name="All" method="get" action="./EarningVending">
+<form name="All" method="post" action="./EarningVending">
 <input type="hidden"name="action"value="">
 </form>
-<form name="Stock" method="get" action="./StockCall">
+<form name="Stock" method="post" action="./StockCall">
 </form>
 <div id="wrapper">
 <div id="header">
 <ul>
 <li class="title"><a href="AdminTop.jsp" >自動販売機管理システ</a></li>
+<li class="title"><a href="AdminTop.jsp" >自動販売機管理システム</a></li>
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>

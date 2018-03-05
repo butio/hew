@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="earnings.Earnings" %>
+    <%@ page import="java.util.ArrayList" %>
+<%
+
+Earnings Error = (Earnings)request.getAttribute("Error");
+
+
+String select = request.getParameter("select");
+
+System.out.println(request.getParameter("error"));
+System.out.println((Error.getMes()));
+System.out.println(request.getParameter("error"));
+ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,14 +24,14 @@
 <title>売上</title>
 </head>
 <body>
-<form name="Vending" method="get" action="./SelectVendingServlet">
+<form name="Vending" method="post" action="./SelectVendingServlet">
 </form>
-<form name="Area" method="get" action="./SelectArea"">
+<form name="Area" method="post" action="./SelectArea"">
 </form>
-<form name="All" method="get" action="./EarningVending"">
+<form name="All" method="post" action="./EarningVending"">
 <input type="hidden"name="action"value="table">
 </form>
-<form name="Stock" method="get" action=""">
+<form name="Stock" method="post" action=""">
 </form>
 <div id="wrapper">
 <div id="header">
@@ -30,19 +44,8 @@
 </li>
 </ul>
 </div>
-    <%@ page import="java.util.ArrayList" %>
-<%
 
-
-String select = request.getParameter("select");
-String Error = request.getParameter("Error");
-
-
-System.out.println(request.getParameter("message"));
-ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
-
-%>
-<form action ="./EarningVending"  method="get">
+<form action ="./EarningVending"  method="post">
 <div id="earning">
 <table>
 	<tr>
@@ -77,17 +80,19 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <p class="buyer">購入者の年代を選択</p>
   <select name="Age" class="design2">
   <option value="" selected>--</option>
-  <option value="1">10代以下</option>
-  <option value="2">10代</option>
-  <option value="3">20代</option>
-  <option value="4">30代</option>
-  <option value="5">40代</option>
-  <option value="6">50代</option>
-  <option value="7">60代以上</option>
+  <option value="9">10代以下</option>
+  <option value="19">10代</option>
+  <option value="29">20代</option>
+  <option value="39">30代</option>
+  <option value="49">40代</option>
+  <option value="59">50代</option>
+  <option value="60">60代以上</option>
   </select>
   <p class="buyer">売上期間の選択</p>
-  <%if(Error != ""){ %>
-  	<%=Error %>
+  <%if(Error.getMes() != ""){ %>
+  	<%=Error.getMes() %>
+  	 <br>
+
   <%} %>
   <select name="year" class="design2">
   <option value="" selected>--</option>
@@ -95,7 +100,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="<%=cnt %>"><%=cnt %></option>
   <%} %>
   </select>
-  
+
     <select name="month" class="design3">
       <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
