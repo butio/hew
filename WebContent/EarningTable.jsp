@@ -64,8 +64,25 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 						type="checkbox" id="label1" class="cssacc" />
 					<div class="accshow">
 						<!--ここに隠す中身-->
+<<<<<<< HEAD
 						<h2>表示範囲</h2>
+=======
+						<div id="stock">
+						<table >
+							<thead>
+								<tr>
+									<th>商品名</th>
+									<th>売上本数</th>
+								</tr>
+							</thead>
+							<!-- データベースの中身を表示する -->
+							<tbody>
+								<%
+									for (ArrayList<String> rec : aryTable) {
+								%>
+>>>>>>> branch 'master' of https://github.com/butio/hew.git
 
+<<<<<<< HEAD
 						<p>
 							期間：<%=E.getDate_Mes()%><br> 性別：<%=E.getSex_Mes()%><br>
 							年代：<%=E.getAge_Mes()%><br>
@@ -83,7 +100,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 								<%
 									for (ArrayList<String> rec : aryTable) {
 								%>
-
+=======
 								<tr>
 									<%
 										int cnt = 0;
@@ -104,7 +121,70 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 									<%
 										}
 									%>
+>>>>>>> branch 'master' of https://github.com/butio/hew.git
 
+<<<<<<< HEAD
+								<tr>
+									<%
+										int cnt = 0;
+									%>
+									<%
+										for (String data : rec) {
+									%>
+									<%
+										if (cnt == 0) {
+									%>
+									<!-- 商品名 -->
+									<td><%=data%></td>
+									<%
+										} else {
+									%>
+									<!-- 売上数 -->
+									<td><%=data%>></td>
+									<%
+										}
+									%>
+=======
+									<%
+										}
+									%>
+								</tr>
+								<%
+									}
+								%>
+							</tbody>
+						</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<center>
+				<p class="buyer">購入者の性別を選択</p>
+				<select name="sex" class="design2">
+					<option value="" selected>--</option>
+					<option value="1">男性</option>
+					<option value="2">女性</option>
+				</select>
+				<p class="buyer">購入者の年代を選択</p>
+				<select name="Age" class="design2">
+					<option value="" selected>--</option>
+					<option value="9">10代以下</option>
+					<option value="19">10代</option>
+					<option value="29">20代</option>
+					<option value="39">30代</option>
+					<option value="49">40代</option>
+					<option value="59">50代</option>
+					<option value="60">60代以上</option>
+				</select>
+				<p class="buyer">売上期間の選択</p>
+				<%
+					if (Error.getMes() != "") {
+				%>
+				<%=Error.getMes()%>
+				<br>
+>>>>>>> branch 'master' of https://github.com/butio/hew.git
+
+<<<<<<< HEAD
 									<%
 										}
 									%>
@@ -142,7 +222,69 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 				%>
 				<%=E.getMes()%>
 				<br>
+=======
+				<%
+					}
+				%>
+				<select name="year" class="design2">
+					<option value="" selected>--</option>
+					<%
+						for (int cnt = 2018; cnt >= 1900; cnt--) {
+					%>
+					<option value="<%=cnt%>"><%=cnt%></option>
+					<%
+						}
+					%>
+				</select> <select name="month" class="design3">
+					<option value="" selected>--</option>
+					<%
+						for (int cnt = 1; cnt <= 12; cnt++) {
+					%>
+					<option value="<%=String.format("%02d", cnt)%>"><%=cnt%></option>
+					<%
+						}
+					%>
+				</select> <select name="day" class="design3">
+					<option value="" selected>--</option>
+					<%
+						for (int cnt = 1; cnt <= 31; cnt++) {
+					%>
+					<option value="<%=String.format("%02d", cnt)%>"><%=cnt%></option>
+					<%
+						}
+					%>
+				</select> ～ <select name="year2" class="design2">
+					<option value="" selected>--</option>
+					<%
+						for (int cnt = 2018; cnt >= 1900; cnt--) {
+					%>
+					<option value="<%=cnt%>"><%=cnt%></option>
+					<%
+						}
+					%>
+				</select> <select name="month2" class="design3">
+					<option value="" selected>--</option>
+					<%
+						for (int cnt = 1; cnt <= 12; cnt++) {
+					%>
+					<option value="-<%=String.format("%02d", cnt)%>"><%=cnt%></option>
+					<%
+						}
+					%>
+				</select> <select name="day2" class="design3">
+					<option value="" selected>--</option>
+					<%
+						for (int cnt = 1; cnt <= 31; cnt++) {
+					%>
+					<option value="-<%=String.format("%02d", cnt)%>"><%=cnt%></option>
+					<%
+						}
+					%>
+				</select>
+			</center>
+>>>>>>> branch 'master' of https://github.com/butio/hew.git
 
+<<<<<<< HEAD
 				<%
 					}
 				%>
@@ -210,6 +352,12 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 				<button class="button" type="submit" name="action" value="Piechart_category">円グラフで表示（カテゴリー毎）</button>
 				<input type="hidden" name="select"value="<%=select%>">
 				<button class="button" type="submit" name="action" value="Linechart">折れ線グラフで表示</button>
+=======
+			<center class="item">
+				<button class="button" type="submit" name="action" value="table">選択項目を反映して再表示</button>
+				<input type="hidden" name="select" value="<%=select%>">
+				<button class="button" type="submit" name="action" value="chart">グラフで表示</button>
+>>>>>>> branch 'master' of https://github.com/butio/hew.git
 				<input type="hidden" name="select" value="<%=select%>">
 
 

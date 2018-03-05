@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dao.Dao;
 
@@ -34,10 +35,13 @@ public class VendingMachineStock extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		HttpSession session = request.getSession(true);
+
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
 		String vendingID = request.getParameter("vendingMachineID");
+		session.setAttribute("VENDING_ID",vendingID);
 		String place ="";
 
 		ArrayList<StockDB> arrayList=new ArrayList<StockDB>();
@@ -59,7 +63,7 @@ public class VendingMachineStock extends HttpServlet {
 				s.setPlace(rs.getString("vending.place"));
 				s.setProductName(rs.getString("product.name"));
 				s.setPrice(rs.getInt("stock.price"));
-				s.setStock(rs.getString("stock.stock"));
+				s.setStock(rs.getInt("stock.stock"));
 				s.setMaxStock(rs.getInt("stock.max_stock"));
 				s.setReceiptdate(rs.getString("stock.receiptdate"));
 				arrayList.add(s);
@@ -67,7 +71,6 @@ public class VendingMachineStock extends HttpServlet {
 
 			sql = "select place from vending where id= "+vendingID+";";
 
-			System.out.println(sql);
 			dao = new Dao();
 			rs = dao.execute(sql);
 			while(rs.next()){
