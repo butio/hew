@@ -81,11 +81,12 @@
 	margin-top:20px;
 	margin:30px;
 	padding:20px;
-	border:5px solid #67c5ff;
+	border:5px solid  #3f3f3f;
 	background-color:	;
 }
 table{
 	width:100%;
+
 }
 .jihanki{
 	margin-top:45px;
@@ -155,7 +156,25 @@ a:hover {
     text-decoration: none; /*テキストの装飾指定(下線、上線など)(noneはなし)*/
     font-weight:bold;
 }
-table td{
-		border-bottom: 1px solid black;
-		padding: 5px;
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+}
+
+table.type th {
+  width: 150px;
+  padding: 7px;
+  font-weight: bold;
+  vertical-align: top;
+  background: #3f3f3f;
+  color: #ffffff;
+}
+table.type td {
+  padding: 5px;
+  vertical-align: top;
+  text-align:center;
+}
+tr:nth-child(even) {
+  background: #d9d9d9;
 }

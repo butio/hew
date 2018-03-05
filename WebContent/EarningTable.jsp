@@ -47,12 +47,15 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 
 <form action ="./EarningVending"  method="post">
 <div id="earning">
-<table>
+<table class="type">
+	<thead>
 	<tr>
 		<td>商品名</td>
 		<td>売上本数</td>
 	</tr>
+	</thead>
 		<!-- データベースの中身を表示する -->
+	<tbody>
 		<% for(ArrayList<String> rec: aryTable){ %>
 	<tr>
 		<%int cnt = 0; %>
@@ -68,6 +71,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 		<% } %>
 	</tr>
 <% } %>
+	</tbody>
 </table>
 </div>
 <center>
