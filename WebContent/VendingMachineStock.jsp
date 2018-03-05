@@ -26,6 +26,7 @@ th { text-align: left; }
 		<input type="hidden" name="action" value="">
 	</form>
 	<form name="Stock" method="get" action="./StockCall"></form>
+
 	<div id="wrapper">
 		<div id="header">
 			<ul>
@@ -46,13 +47,15 @@ th { text-align: left; }
     google.setOnLoadCallback(
         function() {
             var data = google.visualization.arrayToDataTable([
-                [       '', '在庫数', '最大在庫数'],
+                [       '', '在庫数'],
                 <%for (StockDB s : arrayList) {%>
-                ['<%=s.getProductName()%>',     <%=s.getStock()%>,        <%=s.getMaxStock()%>],
+                ['<%=s.getProductName()%>',     <%=s.getStock()%>, ],
                 <%}%>
             ]);
 
             var options = {
+            	max: 20,
+            	min: 0,
                 title: '<%=place%>　自動販売機在庫数',
 			};
 
@@ -98,12 +101,12 @@ th { text-align: left; }
 					%>
 				</table>
 			</div>
-
 		</div>
 	</div>
 
 	<center class="item">
 	<button class="button"  onclick="location.href='StockMap.jsp'">他の自動販売機の在庫を見に行く</button>
+	<button class="button"  onclick="location.href='./Restocking'">在庫を補充する</button>
 	<button class="button"  onclick="location.href='./StockCall'">戻る</button>
 	</center>
 

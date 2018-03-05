@@ -44,6 +44,7 @@ public class Purchase extends HttpServlet {
 		int MEMBER_ID = (int)session.getAttribute("MEMBER_ID");
 		String VENDING_ID = (String)session.getAttribute("VENDING_ID");
 		String fileJsp = "/purchase.jsp";
+		String categoryImg = "";
 		String change = "";
 		Billing r = new Billing();
 
@@ -64,12 +65,17 @@ public class Purchase extends HttpServlet {
 
 			if(r.errFlg){
 
-				//売り上げを追加
 				int productId = 0;
 				dao = new Dao();
 				rs = dao.execute("SELECT product_id FROM stock WHERE count = "+ drink +" AND vending_id = "+ VENDING_ID +";");
 				while(rs.next()){
 					productId = rs.getInt("product_id");
+				}
+
+				dao = new Dao();
+				rs = dao.execute("select category_img from product inner join category on product.category_id = category.id where product.id = "+productId+" ;");
+				while(rs.next()){
+					categoryImg = rs.getString("category_img");
 				}
 
 				int cnt = 0;
@@ -111,6 +117,7 @@ public class Purchase extends HttpServlet {
 			}
 		}
 		 request.setAttribute("CHANGE",change);
+		 request.setAttribute("CATEGORYIMG",categoryImg);
 		 RequestDispatcher rd=request.getRequestDispatcher(fileJsp);
 		 rd.forward(request, response);
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%String change = (String)request.getAttribute("CHANGE"); %>
+<%String imgFile = (String)request.getAttribute("CATEGORYIMG"); %>
 <html>
 <head>
   <meta charset="UTF-8"/>
@@ -42,10 +43,10 @@
 <body>
 
 	<div class="shadow"></div>
-	<img id="drink" class="poyon" src="image/17b27901a4998607243b1de5a1fa27ac.png" width="200" height="200">
+	<img id="drink" class="poyon" src="image/<%=imgFile %>" width="200" height="200">
 	<script>
     // ID値「drink」に対してCSSアニメ―ション「poyon」を300ミリ秒の間隔を空けてループ再生
-    looopAnimation("drink", "poyon", 900);
+    looopAnimation("drink", "poyon", 2000);
   </script>
 	<div class="bubbles">
 		<h1>ご購入ありがとうございました。</h1>

@@ -38,12 +38,25 @@ public class StockCall extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		ArrayList<StockDB> arrayList=new ArrayList<StockDB>();
-		StockDB	flg = new StockDB();
+		String sql = "";
 
 		Dao dao = null;
 		ResultSet rs = null;
 		try{
-			String sql = "select area.area_place,vending.place,vending.id,product.id,product.name,stock.stock,stock.max_stock,stock.receiptdate from stock" +
+			 sql = "select count(*) from stock"+
+					" inner join vending on vending.id = stock.vending_id"+
+					" inner join area on area.id = vending.area_id"+
+					" inner join product on product.id = stock.product_id"+
+					" where stock.stock <= stock.max_stock*0.3;";
+
+			int cnt = 0;
+			dao = new Dao();
+			rs = dao.execute(sql);
+			while(rs.next()){
+				cnt = rs.getInt("count(*)");
+			}
+
+			 sql = "select area.area_place,vending.place,vending.id,product.id,product.name,stock.stock,stock.max_stock,stock.receiptdate from stock" +
 					       " inner join vending on vending.id = stock.vending_id"+
 						   " inner join area on area.id = vending.area_id"+
 						   " inner join product on product.id = stock.product_id"+
@@ -56,13 +69,14 @@ public class StockCall extends HttpServlet {
 				s.setArea(rs.getString("area.area_place"));
 				s.setPlace(rs.getString("vending.place"));
 				s.setProductName(rs.getString("product.name"));
-				s.setStock(rs.getString("stock.stock"));
+				s.setStock(rs.getInt("stock.stock"));
 				s.setMaxStock(rs.getInt("stock.max_stock"));
 				s.setReceiptdate(rs.getString("stock.receiptdate"));
 				arrayList.add(s);
 			}
 
 			request.setAttribute("RESULT",arrayList);
+			request.setAttribute("COUNT",cnt);
 			RequestDispatcher rd=request.getRequestDispatcher("/Stock.jsp");
 			rd.forward(request, response);
 
