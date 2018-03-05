@@ -73,9 +73,9 @@ public class Purchase extends HttpServlet {
 				}
 
 				dao = new Dao();
-				rs = dao.execute("select category_img from product inner join category on product.category_id = category.id where product.id = "+productId+" ;");
+				rs = dao.execute("select category.image  from product inner join category on product.category_id = category.id where product.id = "+productId+" ;");
 				while(rs.next()){
-					categoryImg = rs.getString("category_img");
+					categoryImg = rs.getString("category.image");
 				}
 
 				int cnt = 0;
