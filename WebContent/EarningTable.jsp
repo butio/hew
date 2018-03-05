@@ -45,12 +45,13 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </ul>
 </div>
     <%@ page import="java.util.ArrayList" %>
-<%
+
+<%--
 String select = request.getParameter("select");
 String Error = request.getParameter("Error");
 System.out.println(request.getParameter("message"));
 ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("Result");
-%>
+--%>
 <form action ="./EarningVending"  method="get">
 
 <form action ="./EarningVending"  method="post">

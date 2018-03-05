@@ -22,7 +22,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <form name="All" method="post" action="./EarningVending"">
 <input type="hidden"name="action"value="table">
 </form>
-<form name="Stock" method="post" action=""">
+<form name="Stock" method="post" action="./StockCall">
 </form>
 <div id="wrapper">
 <div id="header">
@@ -31,7 +31,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
-<li class="stock"><a href="#" onClick="document.Stock.submit();">在庫</a>
+<li class="stock"><a href="./StockCall" onClick="document.Stock.submit();">在庫</a>
 </li>
 </ul>
 </div>

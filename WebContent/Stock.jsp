@@ -33,7 +33,7 @@ th { text-align: left; }
 					onClick="document.Vending.submit();">自販機</a></li>
 				<li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 				<li class="all"><a href="#" onClick="document.All.submit();">全体</a>
-				<li class="stock"><a href="#"
+				<li class="stock"><a href="./StockCall"
 					onClick="document.Stock.submit();">在庫</a></li>
 			</ul>
 		</div>
