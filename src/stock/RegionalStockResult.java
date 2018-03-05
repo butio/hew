@@ -50,18 +50,20 @@ public class RegionalStockResult extends HttpServlet {
 			if(state == 1){
 				System.out.println(state);
 				//地域ボーダーを超えていて、自販機ボーダーを切っている商品
-				sql ="select vending.id,vending.area_id,vending.place,stock.count,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock " +
+				sql ="select area.area_place,vending.id,vending.area_id,vending.place,stock.count,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock " +
 						" from stock inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
+						" inner join area on area.id = vending.area_id" +
 						" where stock.stock <= (max_stock * 0.3)" +
 						" and not exists(select count(*),area.id,area.area_place,product.name,sum(stock.stock) as area_stock,sum(max_stock) as area_max,(sum(max_stock) * 0.3) as area_border " +
 						" from stock inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
 						" inner join area on area.id = vending.area_id" +
 						" group by area.id,product.id" +
-						" having sum(stock.stock) <= (sum(max_stock) * 0.3))"+
-						" and vending.area_id = "+area+" "+
+						" having sum(stock.stock) <= (sum(max_stock) * 0.3))" +
+						" and vending.area_id = "+area+""+
 						" group by vending.area_id,vending.id,stock.count;";
+
 
 				System.out.println(sql);
 			}else if(state == 2){
