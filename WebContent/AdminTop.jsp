@@ -14,9 +14,7 @@
 <form name="Area" method="post" action="./SelectArea">
 </form>
 <form name="All" method="post" action="./EarningVending">
-<<<<<<< HEAD
 <input type="hidden"name="action"value="table">
-=======
 <input type="hidden"name="action"value="">
 
 </form>
