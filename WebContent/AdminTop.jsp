@@ -19,7 +19,6 @@
 =======
 <input type="hidden"name="action"value="">
 
->>>>>>> branch 'master' of https://github.com/butio/hew.git
 </form>
 <form name="Stock" method="post" action="./StockCall">
 </form>
