@@ -6,11 +6,10 @@
 
 
 String select = request.getParameter("select");
-String Message = request.getParameter("message");
+Earnings E = (Earnings)request.getAttribute("E");
 
-
-System.out.println(request.getParameter("message"));
 ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.getAttribute("PieChart");
+
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -47,7 +46,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <%}%>
   ])
   		var options = {
-          title: '直近三ヶ月での、全体の商品の売上割合'
+          title: '商品売上割合'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart'));
@@ -63,7 +62,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <form name="All" method="post" action="./EarningVending"">
 <input type="hidden"name="action"value="chart">
 </form>
-<form name="Stock" method="post" action=""">
+<form name="Stock" method="post" action="./StockCall">
 </form>
 <div id="wrapper">
 <div id="header">
@@ -72,15 +71,20 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <li class="machine"><a href="#" onClick="document.Vending.submit();">自販機</a></li>
 <li class="area"><a href="#" onClick="document.Area.submit();">エリア</a></li>
 <li class="all"><a href="#" onClick="document.All.submit();">全体</a>
-<li class="stock"><a href="#" onClick="document.Stock.submit();">在庫</a>
+<li class="stock"><a href="./StockCall" onClick="document.Stock.submit();">在庫</a>
 </li>
 </ul>
 </div>
 
 <form action ="./EarningVending"  method="post">
 <div id="earning">
+				<h2>表示範囲</h2>
 
-<div id="chart" style="width: 900px; height: 500px;"></div>
+				<p>
+					期間：<%=E.getDate_Mes()%><br> 性別：<%=E.getSex_Mes()%><br>
+					年代：<%=E.getAge_Mes()%><br>
+				</p>
+				<div id="chart" style="width: 900px; height: 500px;"></div>
 
 </div>
 <center>
@@ -102,8 +106,10 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <option value="7">60代以上</option>
   </select>
   <p class="buyer">売上期間の選択</p>
-  <%if(Message != ""){ %>
-  	<%=Message %>
+  <%if(E.getMes() != ""){ %>
+  	<%=E.getMes() %>
+  	 <br>
+
   <%} %>
   <select name="year" class="design2">
   <option value="" selected>--</option>
@@ -145,7 +151,11 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 </center>
 
 <center class="item">
-<button class="button" type="submit" name="action" value="chart">選択項目を反映して再表示</button>
+<button class="button" type="submit" name="action" value="Piechart">選択項目を反映して再表示</button>
+<input type="hidden" name="select"value="<%=select%>">
+<button class="button" type="submit" name="action" value="Piechart_category">円グラフで表示（カテゴリー毎）</button>
+<input type="hidden" name="select"value="<%=select%>">
+<button class="button" type="submit" name="action" value="Linechart">折れ線グラフで表示</button>
 <input type="hidden" name="select"value="<%=select%>">
 <button class="button" type="submit" name="action" value="table">表で表示</button>
 <input type="hidden" name="select"value="<%=select%>">

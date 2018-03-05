@@ -38,6 +38,8 @@ public class EarningVending extends HttpServlet {
 		String select = request.getParameter("select");
 		String age = request.getParameter("Age");
 		String sex = request.getParameter("sex");
+		String product = request.getParameter("product");
+
 
 		String year = request.getParameter("year");
 		int intyear = 0;
@@ -50,10 +52,26 @@ public class EarningVending extends HttpServlet {
 		String date = "";
 		String date2 = "";
 		String Message = ("");
+		String sex_mes = "";
+		String age_mes = "";
+		String date_mes = "";
 
+
+
+		if(sex == null){
+			sex = "";
+		}
+		if(age == null){
+			age = "";
+		}
+		if(product == null){
+			product = "";
+		}
 
 
 		ArrayList<ArrayList<String>> EarningList = new ArrayList<ArrayList<String>>();
+		ArrayList<ArrayList<String>> ProductList = new ArrayList<ArrayList<String>>();
+
 
 
 		System.out.println(action);
@@ -114,8 +132,63 @@ public class EarningVending extends HttpServlet {
 
 
 
+		Earnings E = new Earnings();
 
-		if(!action.equals("chart")){
+		if(sex.equals("")){
+			sex_mes = "指定なし";
+		}else if(sex.equals("1")){
+			sex_mes = "男性";
+		}else if(sex.equals("2")){
+			sex_mes = "女性";
+		}
+
+		System.out.println("年代");
+		System.out.println(age);
+		if(age.equals("")){
+			age_mes = "指定なし";
+		}else if(age.equals("9")){
+			age_mes = "10代以下";
+		}else if(age.equals("19")){
+			age_mes = "10代";
+		}else if(age.equals("29")){
+			age_mes = "20代";
+		}else if(age.equals("39")){
+			age_mes = "30代";
+		}else if(age.equals("49")){
+			age_mes = "40代";
+		}else if(age.equals("59")){
+			age_mes = "50代";
+		}else if(age.equals("60")){
+			age_mes = "60代以上";
+		}
+
+		System.out.println(age_mes);
+
+		if(date == "" && date2 == ""){
+			date_mes = "直近四ヶ月";
+		}else if(date != "" && date2 == ""){
+			if(month.equals("")){
+				date_mes = year;
+				date_mes += "以降";
+			}else{
+				date_mes = date;
+				date_mes += "以降";
+			}
+		}else if(date == "" && date2 != ""){
+			if(month2.equals("")){
+				date_mes = year2;
+				date_mes += "以降";
+			}else{
+				date_mes = date2;
+				date_mes += "まで";
+			}
+		}else if(date != "" && date2 != ""){
+			date_mes = date;
+			date_mes += "から";
+			date_mes += date2;
+		}
+
+		if(action.equals("table")){
 
 		EarningList = new ArrayList<ArrayList<String>>();
 
@@ -128,111 +201,281 @@ public class EarningVending extends HttpServlet {
 					EarningList = Earnings.earningAgeProduct(age);
 				}else if(sex != "" && age == ""){
 					EarningList = Earnings.earningSexProduct(sex);
+				}else if(sex != "" && age != ""){
+					EarningList = Earnings.earningSexAgeProduct(sex,age);
 				}
-//				}else{
-//					EarningList = Earnings.earningSexAgeProduct(sex);
-//				}
 			}else if(sex == "" && age == ""){
 				EarningList = Earnings.earningFixeddateProduct(date,date2);
 			}else if(sex == "" && age != ""){
 				EarningList = Earnings.earningAgeFixeddateProduct(date,date2,age);
 			}else if(sex != "" && age == ""){
 				EarningList = Earnings.earningSexFixeddateProduct(date,date2,age);
+			}else if(sex != "" && age != ""){
+				EarningList = Earnings.earningSexAgeFixeddateProduct(date,date2,sex,age);
 			}
-//			}else{
-//				EarningList = Earnings.earningSexAgeFixeddateProduct(date,date2,age);
-//			}
-		}else if(choise.equals("vending")){
-			if(date.equals("") && date2.equals("")){
-				if((sex == "" && age == "") || (sex == null && age == null)){
-				EarningList = Earnings.earningVendingProduct(select);
+			}else if(choise.equals("vending")){
+				if(date.equals("") && date2.equals("")){
+					if((sex == "" && age == "") || (sex == null && age == null)){
+						EarningList = Earnings.earningVendingProduct(select);
+					}else if(sex == "" && age != ""){
+						EarningList = Earnings.earningAgeVendingProduct(select,age);
+					}else if(sex != "" && age == ""){
+						EarningList = Earnings.earningSexVendingProduct(select,sex);
+					}else if(sex != "" && age != ""){
+						EarningList = Earnings.earningSexAgeVendingProduct(select,sex,age);
+					}
+				}else if(sex == "" && age == ""){
+					EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
 				}else if(sex == "" && age != ""){
-					EarningList = Earnings.earningAgeVendingProduct(select,age);
+					EarningList = Earnings.earningAgeVendingFixeddateProduct(select,date,date2,age);
 				}else if(sex != "" && age == ""){
-					EarningList = Earnings.earningSexVendingProduct(select,sex);
-				}else{
-					EarningList = Earnings.earningSexAgeVendingProduct(select,sex,age);
+					EarningList = Earnings.earningSexVendingFixeddateProduct(select,date,date2,age);
+				}else if(sex != "" && age != ""){
+					EarningList = Earnings.earningSexAgeVendingFixeddateProduct(select,date,date2,sex,age);
 				}
-			}else if(sex == "" && age == ""){
-				EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
-			}else if(sex == "" && age != ""){
-				EarningList = Earnings.earningAgeVendingFixeddateProduct(select,date,date2,age);
-			}else if(sex != "" && age == ""){
-				EarningList = Earnings.earningSexVendingFixeddateProduct(select,date,date2,sex);
-			}else{
-				EarningList = Earnings.earningSexAgeVendingFixeddateProduct(select,date,date2,sex,age);
-			}
-
-		}else if(choise.equals("area")){
-			if(date.equals("") && date2.equals("")){
-				if((sex == "" && age == "") || (sex == null && age == null)){
-				EarningList = Earnings.earningAreaProduct(select);
+			}else if(choise.equals("area")){
+				if(date.equals("") && date2.equals("")){
+					if((sex == "" && age == "") || (sex == null && age == null)){
+						EarningList = Earnings.earningAreaProduct(select);
+					}else if(sex == "" && age != ""){
+						EarningList = Earnings.earningAgeAreaProduct(select,age);
+					}else if(sex != "" && age == ""){
+						EarningList = Earnings.earningSexAreaProduct(select,sex);
+					}else if(sex != "" && age != ""){
+						EarningList = Earnings.earningSexAgeAreaProduct(select,sex,age);
+					}else if(sex == "" && age == ""){
+						EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+					}
 				}else if(sex == "" && age != ""){
-					EarningList = Earnings.earningAgeAreaProduct(select,age);
+					EarningList = Earnings.earningAgeAreaFixeddateProduct(select,date,date2,age);
 				}else if(sex != "" && age == ""){
-					EarningList = Earnings.earningSexAreaProduct(select,sex);
-				}else{
-					EarningList = Earnings.earningSexAgeAreaProduct(select,sex,age);
+					EarningList = Earnings.earningSexAreaFixeddateProduct(select,date,date2,age);
+				}else if(sex != "" && age != ""){
+					EarningList = Earnings.earningSexAgeAreaFixeddateProduct(select,date,date2,sex,age);
 				}
-
-			}else if(sex == "" && age == ""){
-				EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
-			}else if(sex == "" && age != ""){
-				EarningList = Earnings.earningAgeAreaFixeddateProduct(select,date,date2,age);
-			}else if(sex != "" && age == ""){
-				EarningList = Earnings.earningSexAreaFixeddateProduct(select,date,date2,sex);
-			}else{
-				EarningList = Earnings.earningSexAgeAreaFixeddateProduct(select,date,date2,sex,age);
 			}
-		}
-
-
 
 		System.out.println(Message);
 		System.out.println(jsp);
 
-
-
-
-		}else{
-
+		}else if(action.equals("Piechart")){
 			jsp = "Chart.jsp";
-
-			EarningList = new ArrayList<ArrayList<String>>();
 			if(choise == null){
 				if(date.equals("") && date2.equals("")){
-					System.out.println("");
+					if((sex == "" && age == "") || (sex == null && age == null)){
 					EarningList = Earnings.earningProduct();
-				}else{
+					}else if(sex == "" && age != ""){
+						EarningList = Earnings.earningAgeProduct(age);
+					}else if(sex != "" && age == ""){
+						EarningList = Earnings.earningSexProduct(sex);
+					}else if(sex != "" && age != ""){
+						EarningList = Earnings.earningSexAgeProduct(sex,age);
+					}
+				}else if(sex == "" && age == ""){
 					EarningList = Earnings.earningFixeddateProduct(date,date2);
+				}else if(sex == "" && age != ""){
+					EarningList = Earnings.earningAgeFixeddateProduct(date,date2,age);
+				}else if(sex != "" && age == ""){
+					EarningList = Earnings.earningSexFixeddateProduct(date,date2,age);
+				}else if(sex != "" && age != ""){
+					EarningList = Earnings.earningSexAgeFixeddateProduct(date,date2,sex,age);
 				}
-			}else if(choise.equals("vending")){
-				if(date.equals("") && date2.equals("")){
-					System.out.println("");
-					EarningList = Earnings.earningVendingProduct(select);
-				}else{
-					EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
+				}else if(choise.equals("vending")){
+					if(date.equals("") && date2.equals("")){
+						if((sex == "" && age == "") || (sex == null && age == null)){
+							EarningList = Earnings.earningVendingProduct(select);
+						}else if(sex == "" && age != ""){
+							EarningList = Earnings.earningAgeVendingProduct(select,age);
+						}else if(sex != "" && age == ""){
+							EarningList = Earnings.earningSexVendingProduct(select,sex);
+						}else if(sex != "" && age != ""){
+							EarningList = Earnings.earningSexAgeVendingProduct(select,sex,age);
+						}
+					}else if(sex == "" && age == ""){
+						EarningList = Earnings.earningVendingFixeddateProduct(select,date,date2);
+					}else if(sex == "" && age != ""){
+						EarningList = Earnings.earningAgeVendingFixeddateProduct(select,date,date2,age);
+					}else if(sex != "" && age == ""){
+						EarningList = Earnings.earningSexVendingFixeddateProduct(select,date,date2,age);
+					}else if(sex != "" && age != ""){
+						EarningList = Earnings.earningSexAgeVendingFixeddateProduct(select,date,date2,sex,age);
+					}
+				}else if(choise.equals("area")){
+					if(date.equals("") && date2.equals("")){
+						if((sex == "" && age == "") || (sex == null && age == null)){
+							EarningList = Earnings.earningAreaProduct(select);
+						}else if(sex == "" && age != ""){
+							EarningList = Earnings.earningAgeAreaProduct(select,age);
+						}else if(sex != "" && age == ""){
+							EarningList = Earnings.earningSexAreaProduct(select,sex);
+						}else if(sex != "" && age != ""){
+							EarningList = Earnings.earningSexAgeAreaProduct(select,sex,age);
+						}else if(sex == "" && age == ""){
+							EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+						}
+					}else if(sex == "" && age != ""){
+						EarningList = Earnings.earningAgeAreaFixeddateProduct(select,date,date2,age);
+					}else if(sex != "" && age == ""){
+						EarningList = Earnings.earningSexAreaFixeddateProduct(select,date,date2,age);
+					}else if(sex != "" && age != ""){
+						EarningList = Earnings.earningSexAgeAreaFixeddateProduct(select,date,date2,sex,age);
+					}
 				}
-			}else if(choise.equals("area")){
-				if(date.equals("") && date2.equals("")){
-					System.out.println("");
-					EarningList = Earnings.earningAreaProduct(select);
-				}else{
-					EarningList = Earnings.earningAreaFixeddateProduct(select,date,date2);
+			}else if(action.equals("Piechart_category")){
+				jsp = ("Chart.jsp");
+				if(choise == null){
+					if(date.equals("") && date2.equals("")){
+						if((sex == "" && age == "") || (sex == null && age == null)){
+						EarningList = Category.earningProduct();
+						}else if(sex == "" && age != ""){
+							EarningList = Category.earningAgeProduct(age);
+						}else if(sex != "" && age == ""){
+							EarningList = Category.earningSexProduct(sex);
+						}else if(sex != "" && age != ""){
+							EarningList = Category.earningSexAgeProduct(sex,age);
+						}
+					}else if(sex == "" && age == ""){
+						EarningList = Category.earningFixeddateProduct(date,date2);
+					}else if(sex == "" && age != ""){
+						EarningList = Category.earningAgeFixeddateProduct(date,date2,age);
+					}else if(sex != "" && age == ""){
+						EarningList = Category.earningSexFixeddateProduct(date,date2,age);
+					}else if(sex != "" && age != ""){
+						EarningList = Category.earningSexAgeFixeddateProduct(date,date2,sex,age);
+					}
+					}else if(choise.equals("vending")){
+						if(date.equals("") && date2.equals("")){
+							if((sex == "" && age == "") || (sex == null && age == null)){
+								EarningList = Category.earningVendingProduct(select);
+							}else if(sex == "" && age != ""){
+								EarningList = Category.earningAgeVendingProduct(select,age);
+							}else if(sex != "" && age == ""){
+								EarningList = Category.earningSexVendingProduct(select,sex);
+							}else if(sex != "" && age != ""){
+								EarningList = Category.earningSexAgeVendingProduct(select,sex,age);
+							}
+						}else if(sex == "" && age == ""){
+							EarningList = Category.earningVendingFixeddateProduct(select,date,date2);
+						}else if(sex == "" && age != ""){
+							EarningList = Category.earningAgeVendingFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age == ""){
+							EarningList = Category.earningSexVendingFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age != ""){
+							EarningList = Category.earningSexAgeVendingFixeddateProduct(select,date,date2,sex,age);
+						}
+					}else if(choise.equals("area")){
+						if(date.equals("") && date2.equals("")){
+							if((sex == "" && age == "") || (sex == null && age == null)){
+								EarningList = Category.earningAreaProduct(select);
+							}else if(sex == "" && age != ""){
+								EarningList = Category.earningAgeAreaProduct(select,age);
+							}else if(sex != "" && age == ""){
+								EarningList = Category.earningSexAreaProduct(select,sex);
+							}else if(sex != "" && age != ""){
+								EarningList = Category.earningSexAgeAreaProduct(select,sex,age);
+							}else if(sex == "" && age == ""){
+								EarningList = Category.earningAreaFixeddateProduct(select,date,date2);
+							}
+						}else if(sex == "" && age != ""){
+							EarningList = Category.earningAgeAreaFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age == ""){
+							EarningList = Category.earningSexAreaFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age != ""){
+							EarningList = Category.earningSexAgeAreaFixeddateProduct(select,date,date2,sex,age);
+						}
+					}
+
+			}else if(action.equals("Linechart")){
+				jsp = "LineChart.jsp";
+
+				ProductList = Chart.ChartMake.ProductList();
+
+				if(product == ""){
+					product = "指定なし";
+					E.setProduct_Mes(product);
 				}
+				else{
+					E.setProduct_Mes2(product);
+				}
+
+				if(choise == null){
+					if(date.equals("") && date2.equals("")){
+						if((sex == "" && age == "") || (sex == null && age == null)){
+						EarningList = Chart.ChartMake.LineChartAll();
+						}else if(sex == "" && age != ""){
+							EarningList = Category.earningAgeProduct(age);
+						}else if(sex != "" && age == ""){
+							EarningList = Category.earningSexProduct(sex);
+						}else if(sex != "" && age != ""){
+							EarningList = Category.earningSexAgeProduct(sex,age);
+						}
+					}else if(sex == "" && age == ""){
+						EarningList = Category.earningFixeddateProduct(date,date2);
+					}else if(sex == "" && age != ""){
+						EarningList = Category.earningAgeFixeddateProduct(date,date2,age);
+					}else if(sex != "" && age == ""){
+						EarningList = Category.earningSexFixeddateProduct(date,date2,age);
+					}else if(sex != "" && age != ""){
+						EarningList = Category.earningSexAgeFixeddateProduct(date,date2,sex,age);
+					}
+					}else if(choise.equals("vending")){
+						if(date.equals("") && date2.equals("")){
+							if((sex == "" && age == "") || (sex == null && age == null)){
+								EarningList = Chart.ChartMake.LineChartVendingAll(select);
+							}else if(sex == "" && age != ""){
+								EarningList = Category.earningAgeVendingProduct(select,age);
+							}else if(sex != "" && age == ""){
+								EarningList = Category.earningSexVendingProduct(select,sex);
+							}else if(sex != "" && age != ""){
+								EarningList = Category.earningSexAgeVendingProduct(select,sex,age);
+							}
+						}else if(sex == "" && age == ""){
+							EarningList = Category.earningVendingFixeddateProduct(select,date,date2);
+						}else if(sex == "" && age != ""){
+							EarningList = Category.earningAgeVendingFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age == ""){
+							EarningList = Category.earningSexVendingFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age != ""){
+							EarningList = Category.earningSexAgeVendingFixeddateProduct(select,date,date2,sex,age);
+						}
+					}else if(choise.equals("area")){
+						if(date.equals("") && date2.equals("")){
+							if((sex == "" && age == "") || (sex == null && age == null)){
+								EarningList = Chart.ChartMake.LineChartAreaAll(select);
+							}else if(sex == "" && age != ""){
+								EarningList = Category.earningAgeAreaProduct(select,age);
+							}else if(sex != "" && age == ""){
+								EarningList = Category.earningSexAreaProduct(select,sex);
+							}else if(sex != "" && age != ""){
+								EarningList = Category.earningSexAgeAreaProduct(select,sex,age);
+							}else if(sex == "" && age == ""){
+								EarningList = Category.earningAreaFixeddateProduct(select,date,date2);
+							}
+						}else if(sex == "" && age != ""){
+							EarningList = Category.earningAgeAreaFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age == ""){
+							EarningList = Category.earningSexAreaFixeddateProduct(select,date,date2,age);
+						}else if(sex != "" && age != ""){
+							EarningList = Category.earningSexAgeAreaFixeddateProduct(select,date,date2,sex,age);
+						}
+					}
 			}
 
 
-		}
-		Earnings E = new Earnings();
+
+		E.setSex_Mes(sex_mes);
+		E.setAge_Mes(age_mes);
+		E.setDate_Mes(date_mes);
 
 		E.setMes(Message);
 
+		System.out.println(product);
 
-
+		request.setAttribute("Product",ProductList);
+		request.setAttribute("LineChart",EarningList);
 		request.setAttribute("PieChart",EarningList);
 		request.setAttribute("Result",EarningList);
-		request.setAttribute("Error",E);
+		request.setAttribute("E",E);
 		request.setAttribute("select",select);
 
 
@@ -243,6 +486,7 @@ public class EarningVending extends HttpServlet {
 
 
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

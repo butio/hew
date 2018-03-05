@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Dao {
-	private final String DB_NAME ="hew";
+	private final String DB_NAME ="hew1";
 	private final String DB_USER = "root";
 	private final String DB_PASS = "";
 
