@@ -105,9 +105,9 @@ th { text-align: left; }
 	</div>
 
 	<center class="item">
+		<button class="button"  onclick="location.href='./StockCall'">戻る</button>
 	<button class="button"  onclick="location.href='StockMap.jsp'">他の自動販売機の在庫を見に行く</button>
 	<button class="button"  onclick="location.href='./Restocking'">在庫を補充する</button>
-	<button class="button"  onclick="location.href='./StockCall'">戻る</button>
 	</center>
 
 	<div id="footer">
