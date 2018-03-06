@@ -216,10 +216,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 				<button class="button" type="submit" name="action" value="Piechart_category">円グラフで表示（カテゴリー毎）</button>
 
 
-				<button class="button" type="submit" name="action" value="Linechart">折れ線グラフで表示</button>
-
-
-
 			</center>
 		</form>
 		<div id="footer">
