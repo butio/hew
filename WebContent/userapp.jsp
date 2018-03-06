@@ -35,8 +35,8 @@
   <title>アプリ</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
-
 <body>
+  <div id="image"></div>
   <div id="form-main">
   <div id="form-div">
 
