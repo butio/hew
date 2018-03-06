@@ -55,7 +55,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <center class="jihanki">
   <input type="hidden" name="choise"value="<%=ChoisePrice %>"></input>
   <button class="button" type="submit" name="action" value="table">票で表示</button>
-  <button class="button" type="submit" name="action" value="chart">グラフで表示</button>
+  <button class="button" type="submit" name="action" value="Piechart">グラフで表示</button>
 </center>
 </form>
 <div id="footer">

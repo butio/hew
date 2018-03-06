@@ -477,6 +477,8 @@ public class EarningVending extends HttpServlet {
 		request.setAttribute("Result",EarningList);
 		request.setAttribute("E",E);
 		request.setAttribute("select",select);
+		request.setAttribute("choise",choise);
+
 
 
 
