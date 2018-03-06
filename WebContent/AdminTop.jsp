@@ -32,7 +32,7 @@
 <div id="navi">
 <h2 class="size">メニュー</h2>
 <ul>
-<h3>売上参照</h3>
+<h3 class="menutitle">売上参照</h3>
 <li class="navigation">
 <a href="#" onClick="document.Vending.submit();">自販機</a>
 </li>
@@ -42,7 +42,8 @@
 <li class="navigation">
 <a href="#" onClick="document.All.submit();">全体</a>
 </li>
-<h3>管理機能</h3>
+<div class="kinou">
+<h3 class="menutitle">管理機能</h3>
 <li class="navigation">
 <a href="./StockCall" onClick="document.Stock.submit();">在庫</a>
 </li>
@@ -50,6 +51,7 @@
 <a href="./Suggestion" onClick="document.Stock.submit();">提案</a>
 </li>
 </ul>
+</div>
 </div>
 <div id="footer">
 <p class="copy">copyright(C) 2018</p>
