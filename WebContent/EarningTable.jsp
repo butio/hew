@@ -202,7 +202,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 					%>
 				</select>
 			</center>
-
 			<center class="item">
 				<button class="button" type="submit" name="action" value="table">選択項目を反映して再表示</button>
 				<input type="hidden" name="select" value="<%=select%>">
@@ -211,8 +210,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 				<input type="hidden" name="select"value="<%=select%>">
 				<button class="button" type="submit" name="action" value="Linechart">折れ線グラフで表示</button>
 				<input type="hidden" name="select" value="<%=select%>">
-
-
 			</center>
 		</form>
 		<div id="footer">

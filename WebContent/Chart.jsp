@@ -79,13 +79,13 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <form action ="./EarningVending"  method="post">
 <div id="earning">
 				<h2>表示範囲</h2>
-
 				<p>
 					期間：<%=E.getDate_Mes()%><br> 性別：<%=E.getSex_Mes()%><br>
 					年代：<%=E.getAge_Mes()%><br>
 				</p>
+<center>
 				<div id="chart" style="width: 900px; height: 500px;"></div>
-
+</center>
 </div>
 <center>
   <p class="buyer">購入者の性別を選択</p>
@@ -159,8 +159,6 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <input type="hidden" name="select"value="<%=select%>">
 <button class="button" type="submit" name="action" value="table">表で表示</button>
 <input type="hidden" name="select"value="<%=select%>">
-
-
 </center>
 </form>
 <div id="footer">
