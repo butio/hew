@@ -13,7 +13,6 @@
 	            var month = date.getMonth() + 1
 	            var day = date.getDate()
 
-
 	            var toTwoDigits = function (num, digit) {
 	              num += ''
 	              if (num.length < digit) {

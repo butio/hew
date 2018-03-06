@@ -49,38 +49,39 @@ public class RegionalStockResult extends HttpServlet {
 		try{
 			if(state == 1){
 				System.out.println(state);
-				//地域ボーダーを超えていて、自販機ボーダーを切っている商品
-				sql ="select area.area_place,vending.id,vending.area_id,vending.place,stock.count,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock " +
-						" from stock inner join product on product.id = stock.product_id" +
+
+				sql = "select area.area_place,vending.id,vending.place,stock.count,product.id,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock from stock" +
+						" inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
 						" inner join area on area.id = vending.area_id" +
-						" where stock.stock <= (max_stock * 0.3)" +
-						" and not exists(select count(*),area.id,area.area_place,product.name,sum(stock.stock) as area_stock,sum(max_stock) as area_max,(sum(max_stock) * 0.3) as area_border " +
-						" from stock inner join product on product.id = stock.product_id" +
+						" inner join (select vending.id,count(*),area.id as area_id,area.area_place,product.id as p_id,product.name,sum(stock.stock) as area_stock,sum(max_stock) as area_max,(sum(max_stock) * 0.3) as area_border from stock" +
+						" inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
 						" inner join area on area.id = vending.area_id" +
+						" where vending.area_id = "+area+""+
 						" group by area.id,product.id" +
-						" having sum(stock.stock) <= (sum(max_stock) * 0.3))" +
-						" and vending.area_id = "+area+""+
-						" group by vending.area_id,vending.id,stock.count;";
+						" having sum(stock.stock) >= (sum(max_stock) * 0.3)) c on c.area_id = vending.area_id and c.p_id = product.id" +
+						" where stock.stock <= (max_stock * 0.3)" +
+						" group by vending.id,stock.count;";
 
 
 				System.out.println(sql);
 			}else if(state == 2){
 				System.out.println(state);
-				//自動販売機ボーダーを超えていて、地域ボーダーを切っている商品
-				sql ="select vending.id,stock.count,vending.area_id,area.area_place,stock.vending_id,vending.place,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock" +
-						" from stock inner join product on product.id = stock.product_id" +
-						" inner join vending on vending.id = stock.vending_id" +
-						" inner join area on area.id = vending.area_id" +
-						" where exists(select vending.id,vending.place,stock.count,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock from stock" +
+
+				sql = "select area.area_place,vending.id,vending.place,stock.count,product.id,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock from stock" +
 						" inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
-						" where stock.stock >= (max_stock * 0.3)" +
-						" group by vending.id,stock.count)" +
-						" and vending.area_id = "+area+"" +
+						" inner join area on area.id = vending.area_id" +
+						" inner join (select vending.id as vending_id,count(*),area.id,area.id as area_id,area.area_place,product.id as p_id,product.name,sum(stock.stock) as area_stock,sum(max_stock) as area_max,(sum(max_stock) * 0.3) as area_border from stock" +
+						" inner join product on product.id = stock.product_id" +
+						" inner join vending on vending.id = stock.vending_id" +
+						" inner join area on area.id = vending.area_id" +
+						" where vending.area_id = "+area+""+
 						" group by area.id,product.id" +
-						" having sum(stock.stock) <= (sum(max_stock) * 0.3);";
+						" having sum(stock.stock) <= (sum(max_stock) * 0.3)) c on c.area_id = vending.area_id and c.p_id = product.id" +
+						" where stock.stock >= (max_stock * 0.3)" +
+						" group by vending.id,stock.count;";
 
 				System.out.println(sql);
 			}
