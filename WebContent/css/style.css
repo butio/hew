@@ -1,7 +1,7 @@
 body{
   width:1200px;
-  margin: auto;
-  padding-top: 60px;
+  margin: 0 auto;
+  margin-top:60px;
   background-color: #3498db;
 }
 .product{
