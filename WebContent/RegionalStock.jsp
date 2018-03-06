@@ -73,7 +73,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 			</center>
 			<center class="jihanki">
 				<button class="button" type="submit" name="action" value="1">地域ボーダーを超えていて、自販機ボーダーを切っている商品</button>
-				<button class="button" type="submit" name="action" value="2">自動販売機ボーダーを超えていて、地域ボーダーを切っている商品</button>
+				<button class="button" type="submit" name="action" value="2">自販機ボーダーを超えていて、地域ボーダーを切っている商品</button>
 			</center>
 		</form>
 					<center class="jihanki">
