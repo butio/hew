@@ -139,6 +139,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 					<option value="60">60代以上</option>
 				</select>
 				<p class="buyer">売上期間の選択</p>
+
 				<%
 					if (E.getMes() != "") {
 				%>
