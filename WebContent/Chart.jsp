@@ -99,13 +99,13 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   <p class="buyer">購入者の年代を選択</p>
   <select name="Age" class="design2">
   <option value="" selected>--</option>
-  <option value="1">10代以下</option>
-  <option value="2">10代</option>
-  <option value="3">20代</option>
-  <option value="4">30代</option>
-  <option value="5">40代</option>
-  <option value="6">50代</option>
-  <option value="7">60代以上</option>
+  <option value="9">10代以下</option>
+  <option value="19">10代</option>
+  <option value="29">20代</option>
+  <option value="39">30代</option>
+  <option value="49">40代</option>
+  <option value="59">50代</option>
+  <option value="60">60代以上</option>
   </select>
   <p class="buyer">売上期間の選択</p>
   <%if(E.getMes() != ""){ %>
