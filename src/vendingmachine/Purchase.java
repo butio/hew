@@ -55,7 +55,7 @@ public class Purchase extends HttpServlet {
 
 			int price = 0;
 			dao = new Dao();
-			rs = dao.execute("SELECT price FROM stock WHERE count = "+ drink +" ;");
+			rs = dao.execute("SELECT price FROM stock WHERE count = "+ drink +" AND vending_id = "+ VENDING_ID +";");
 			while(rs.next()){
 				price = rs.getInt("price");
 			}
