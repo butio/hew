@@ -109,7 +109,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
   </select>
   <p class="buyer">売上期間の選択</p>
   <%if(E.getMes() != ""){ %>
-  	<%=E.getMes() %>
+  <p class="message"><%=E.getMes() %></p>
   	 <br>
 
   <%} %>
