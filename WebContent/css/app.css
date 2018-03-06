@@ -2,7 +2,7 @@
 
 html{
 	/*background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;*/
-	background-color: #3498db;
+background: linear-gradient(#1c92d2, #f2fcfe);
   background-size: cover;
   height:100%;
 }
