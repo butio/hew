@@ -15,7 +15,6 @@
 </form>
 <form name="All" method="post" action="./EarningVending">
 <input type="hidden"name="action"value="table">
-<input type="hidden"name="action"value="">
 
 </form>
 <form name="Stock" method="post" action="./StockCall">

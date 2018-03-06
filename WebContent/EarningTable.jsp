@@ -207,19 +207,17 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 			<center class="item">
 				<button class="button" type="submit" name="action" value="table">選択項目を反映して再表示</button>
 				<input type="hidden" name="select" value="<%=select%>">
+				<%if(choise != null){ %>
 				<input type="hidden" name="choise"value="<%=choise%>">
-
+				<%} %>
 				<button class="button" type="submit" name="action" value="Piechart">円グラフで表示</button>
-				<input type="hidden" name="select"value="<%=select%>">
-				<input type="hidden" name="choise"value="<%=choise%>">
+
 
 				<button class="button" type="submit" name="action" value="Piechart_category">円グラフで表示（カテゴリー毎）</button>
-				<input type="hidden" name="select"value="<%=select%>">
-				<input type="hidden" name="choise"value="<%=choise%>">
+
 
 				<button class="button" type="submit" name="action" value="Linechart">折れ線グラフで表示</button>
-				<input type="hidden" name="select" value="<%=select%>">
-				<input type="hidden" name="choise"value="<%=choise%>">
+
 
 
 			</center>

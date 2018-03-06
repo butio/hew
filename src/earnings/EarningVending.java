@@ -57,6 +57,9 @@ public class EarningVending extends HttpServlet {
 		String date_mes = "";
 
 
+		if(choise == null){
+			choise = "";
+		}
 
 		if(sex == null){
 			sex = "";
@@ -193,7 +196,7 @@ public class EarningVending extends HttpServlet {
 		EarningList = new ArrayList<ArrayList<String>>();
 
 
-		if(choise == null){
+		if(choise == ""){
 			if(date.equals("") && date2.equals("")){
 				if((sex == "" && age == "") || (sex == null && age == null)){
 				EarningList = Earnings.earningProduct();
@@ -260,7 +263,7 @@ public class EarningVending extends HttpServlet {
 
 		}else if(action.equals("Piechart")){
 			jsp = "Chart.jsp";
-			if(choise == null){
+			if(choise == ""){
 				if(date.equals("") && date2.equals("")){
 					if((sex == "" && age == "") || (sex == null && age == null)){
 					EarningList = Earnings.earningProduct();
@@ -323,7 +326,7 @@ public class EarningVending extends HttpServlet {
 				}
 			}else if(action.equals("Piechart_category")){
 				jsp = ("Chart.jsp");
-				if(choise == null){
+				if(choise == ""){
 					if(date.equals("") && date2.equals("")){
 						if((sex == "" && age == "") || (sex == null && age == null)){
 						EarningList = Category.earningProduct();
@@ -398,7 +401,7 @@ public class EarningVending extends HttpServlet {
 					E.setProduct_Mes2(product);
 				}
 
-				if(choise == null){
+				if(choise == ""){
 					if(date.equals("") && date2.equals("")){
 						if((sex == "" && age == "") || (sex == null && age == null)){
 						EarningList = Chart.ChartMake.LineChartAll();

@@ -96,6 +96,7 @@ public class ChartMake {
 			while(rs.next()){
 				ArrayList<String>rec = new ArrayList<String>();
 
+				
 				date = (rs.getString("BayYear"));
 				date += "年";
 				date += (rs.getString("BayMonth"));
