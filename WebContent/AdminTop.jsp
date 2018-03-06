@@ -44,6 +44,9 @@
 <li class="navigation">
 <a href="./StockCall" onClick="document.Stock.submit();">在庫</a>
 </li>
+<li class="navigation">
+<a href="./Suggestion" onClick="document.Stock.submit();">提案</a>
+</li>
 </ul>
 </div>
 <div id="footer">

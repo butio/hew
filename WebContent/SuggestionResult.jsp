@@ -56,6 +56,7 @@ ArrayList<SuggestionDB> arrayList= (ArrayList<SuggestionDB>) request.getAttribut
 
 		<div id="price">
  	<input id="textCoin" name="coin" value=""  type="number" class="price" min="0" max="1000" step="10" onInput="checkForm(this)"  required="required" >
+
 </div>
 
 </body>

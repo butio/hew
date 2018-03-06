@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Dao {
-	private final String DB_NAME ="hew1";
-	private final String DB_USER = "root";
-	private final String DB_PASS = "";
+	private final String DB_NAME ="hew";
+	private final String DB_USER = "hew";
+	private final String DB_PASS = "hewhew";
 
 	private Connection cn = null;
 	private Statement st = null;
@@ -20,7 +20,7 @@ public class Dao {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			this.cn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/" + DB_NAME + "?characterEncoding=utf8", DB_USER,DB_PASS);
+					"jdbc:mysql://172.23.48.71:3306/" + DB_NAME + "?characterEncoding=utf8", DB_USER,DB_PASS);
 			this.st = this.cn.createStatement();
 		}catch (SQLException e) {
 			throw e;
