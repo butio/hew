@@ -97,8 +97,9 @@ ArrayList<ArrayList<String>> aryTable2 = (ArrayList<ArrayList<String>>) request.
 					期間：<%=E.getDate_Mes()%><br> 性別：<%=E.getSex_Mes()%><br>
 					年代：<%=E.getAge_Mes()%><br>商品：<%=E.getProduct_Mes() %>
 				</p>
-				<div id="chart" style="width: 900px; height: 500px;"></div>
-
+<center>
+		<div id="chart" style="width: 900px; height: 500px;"></div>
+</center>
 </div>
 <center>
   <p class="buyer">購入者の性別を選択</p>
