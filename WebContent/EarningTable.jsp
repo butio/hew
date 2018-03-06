@@ -142,7 +142,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 				<%
 					if (E.getMes() != "") {
 				%>
-				<%=E.getMes()%>
+				<p class="message"><%=E.getMes()%></p>
 				<br>
 
 				<%

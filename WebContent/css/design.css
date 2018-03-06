@@ -165,3 +165,6 @@ table, th, td {
 tr:nth-child(even) {
   background: #d9d9d9;
 }
+.message{
+	color:red;
+}
