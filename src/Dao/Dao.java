@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class Dao {
 	private final String DB_NAME ="hew";
 	private final String DB_USER = "hew";
-	private final String DB_PASS = "hew";
+	private final String DB_PASS = "hewhew";
 
 	private Connection cn = null;
 	private Statement st = null;
