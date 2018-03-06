@@ -13,7 +13,6 @@
 	            var month = date.getMonth() + 1
 	            var day = date.getDate()
 
-
 	            var toTwoDigits = function (num, digit) {
 	              num += ''
 	              if (num.length < digit) {
@@ -35,8 +34,8 @@
   <title>アプリ</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
-
 <body>
+  <div id="image"></div>
   <div id="form-main">
   <div id="form-div">
 
