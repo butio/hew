@@ -1117,7 +1117,7 @@ public class Category {
 				" INNER JOIN product p ON p.id = e.product_id" +
 				" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-				" WHERE v.id = '"+ vending_ID +"'" +
+				" WHERE vending_id = '"+ vending_ID +"'" +
 				" AND date >= '"+ strdate + "'" +
 				" GROUP BY c.category" +
 				" ORDER BY COUNT(*) DESC;";
@@ -1178,7 +1178,7 @@ public class Category {
 				" INNER JOIN product p ON p.id = e.product_id" +
 				" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-				" WHERE v.id = '"+ vending_ID +"'" +
+				" WHERE vending_id = '"+ vending_ID +"'" +
 				" AND date >= '"+ strdate + "'" +
 				" AND m.sex = '"+ sex + "'" +
 				" GROUP BY c.category" +
@@ -1386,7 +1386,7 @@ public class Category {
     				" ) AS age"+
     				" FROM member"+
     				")age ON m.id = age.id"+
-    				" WHERE v.id = '"+ vending_ID +"'" +
+    				" WHERE vending_id = '"+ vending_ID +"'" +
     				" AND date >= '"+ strdate + "'" +
     				" AND age >= "+ age + "" +
     				" AND m.sex = "+ sex + "" +
@@ -1421,7 +1421,7 @@ public class Category {
 				" ) AS age"+
 				" FROM member"+
 				") age ON m.id = age.id"+
-				" WHERE v.id = '"+ vending_ID +"'" +
+				" WHERE vending_id = '"+ vending_ID +"'" +
 				" AND date >= '"+ strdate + "'" +
 				" AND age <= "+ age + " AND age > "+ intage +"" +
 				" AND m.sex = "+ sex + "" +
@@ -1490,7 +1490,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ vending_ID +"'" +
+					" WHERE vending_id = '"+ vending_ID +"'" +
 					" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
 					" GROUP BY c.category" +
 					" ORDER BY COUNT(*) DESC;";
@@ -1500,7 +1500,7 @@ public class Category {
 						" INNER JOIN product p ON p.id = e.product_id" +
 						" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-						" WHERE v.id = '"+ vending_ID +"'" +
+						" WHERE vending_id = '"+ vending_ID +"'" +
 						" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 						" GROUP BY c.category" +
 						" ORDER BY COUNT(*) DESC;";
@@ -1511,7 +1511,7 @@ public class Category {
 						" INNER JOIN product p ON p.id = e.product_id" +
 						" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-						" WHERE v.id = '"+ vending_ID +"'" +
+						" WHERE vending_id = '"+ vending_ID +"'" +
 						" AND date <= '" + date2 +"'" +
 						" GROUP BY c.category" +
 						" ORDER BY COUNT(*) DESC;";
@@ -1576,7 +1576,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ vending_ID +"'" +
+					" WHERE vending_id = '"+ vending_ID +"'" +
 					" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
 					" AND m.sex = '"+ sex + "'" +
 					" GROUP BY c.category" +
@@ -1587,7 +1587,7 @@ public class Category {
 						" INNER JOIN product p ON p.id = e.product_id" +
 						" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-						" WHERE v.id = '"+ vending_ID +"'" +
+						" WHERE vending_id = '"+ vending_ID +"'" +
 						" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 						" AND m.sex = '"+ sex + "'" +
 						" GROUP BY c.category" +
@@ -1599,7 +1599,7 @@ public class Category {
 						" INNER JOIN product p ON p.id = e.product_id" +
 						" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-						" WHERE v.id = '"+ vending_ID +"'" +
+						" WHERE vending_id = '"+ vending_ID +"'" +
 						" AND date <= '" + date2 +"'" +
 						" AND m.sex = '"+ sex + "'" +
 						" GROUP BY c.category" +
@@ -1666,7 +1666,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ vending_ID +"'" +
+					" WHERE vending_id = '"+ vending_ID +"'" +
 					" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
 					" AND sex = '"+ age + "'" +
 					" GROUP BY c.category" +
@@ -1677,7 +1677,7 @@ public class Category {
 						" INNER JOIN product p ON p.id = e.product_id" +
 						" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-						" WHERE v.id = '"+ vending_ID +"'" +
+						" WHERE vending_id = '"+ vending_ID +"'" +
 						" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 						" AND sex = '"+ age + "'" +
 						" GROUP BY c.category" +
@@ -1689,7 +1689,7 @@ public class Category {
 						" INNER JOIN product p ON p.id = e.product_id" +
 						" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-						" WHERE v.id = '"+ vending_ID +"'" +
+						" WHERE vending_id = '"+ vending_ID +"'" +
 						" AND date <= '" + date2 +"'" +
 						" AND sex = '"+ age + "'" +
 						" GROUP BY c.category" +
@@ -2408,7 +2408,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ area +"'" +
+					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 					" GROUP BY c.category" +
 					" ORDER BY COUNT(*) DESC;";
@@ -2419,7 +2419,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ area +"'" +
+					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '" + date2 +"'" +
 					" GROUP BY c.category" +
 					" ORDER BY COUNT(*) DESC;";
@@ -2495,7 +2495,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ area +"'" +
+					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 					" AND m.sex = '"+ sex + "'" +
 					" GROUP BY c.category" +
@@ -2507,7 +2507,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
-					" WHERE v.id = '"+ area +"'" +
+					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '" + date2 +"'" +
 					" AND m.sex = '"+ sex + "'" +
 					" GROUP BY c.category" +

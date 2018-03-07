@@ -190,7 +190,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 					<%
 						for (int cnt = 1; cnt <= 12; cnt++) {
 					%>
-					<option value="-<%=String.format("%02d", cnt)%>"><%=cnt%></option>
+					<option value="<%=String.format("%02d", cnt)%>"><%=cnt%></option>
 					<%
 						}
 					%>
@@ -199,7 +199,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 					<%
 						for (int cnt = 1; cnt <= 31; cnt++) {
 					%>
-					<option value="-<%=String.format("%02d", cnt)%>"><%=cnt%></option>
+					<option value="<%=String.format("%02d", cnt)%>"><%=cnt%></option>
 					<%
 						}
 					%>

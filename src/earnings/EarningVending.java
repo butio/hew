@@ -55,6 +55,7 @@ public class EarningVending extends HttpServlet {
 		String sex_mes = "";
 		String age_mes = "";
 		String date_mes = "";
+		boolean Age_flg = false;
 
 
 		if(choise == null){
@@ -69,6 +70,26 @@ public class EarningVending extends HttpServlet {
 		}
 		if(product == null){
 			product = "";
+		}
+
+		if(year == null){
+			year = "";
+		}
+		if(year2 == null){
+			year2 = "";
+		}
+		if(month == null){
+			month = "";
+		}
+		if(month2 == null){
+			month2 = "";
+		}
+
+		if(day == null){
+			day = "";
+		}
+		if(day2 == null){
+			day2 = "";
 		}
 
 
@@ -86,6 +107,13 @@ public class EarningVending extends HttpServlet {
 		System.out.println(year2);
 		System.out.println(month2);
 		System.out.println(day2);
+
+		if((year.equals(year2) && month.equals(month2) && day.equals(day2)) && (year != "" && month != "" && day != "")){
+			int intday2 = Integer.parseInt(day2) + 1;
+			day2 = Integer.toString(intday2);
+
+		}
+
 
 		if((year != "" && month != "" && day !="") || (year != "" && month == "" && day =="")){
 			if(year != null){
@@ -189,6 +217,9 @@ public class EarningVending extends HttpServlet {
 			date_mes = date;
 			date_mes += "から";
 			date_mes += date2;
+		}
+		if(Age_flg){
+			date_mes = date;
 		}
 
 		if(action.equals("table")){

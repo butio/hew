@@ -141,13 +141,13 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
     <select name="month2" class="design3">
       <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 12 ; cnt ++) {%>
-  <option value="-<%=String.format("%02d",cnt) %>"><%=cnt %></option>
+  <option value="<%=String.format("%02d",cnt) %>"><%=cnt %></option>
   <%} %>
   </select>
       <select name="day2" class="design3">
         <option value="" selected>--</option>
   <% for(int cnt = 1; cnt <= 31 ; cnt ++) {%>
-  <option value="-<%=String.format("%02d",cnt) %>"><%=cnt %></option>
+  <option value="<%=String.format("%02d",cnt) %>"><%=cnt %></option>
   <%} %>
   </select>
 </center>

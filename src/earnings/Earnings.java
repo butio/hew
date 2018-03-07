@@ -489,7 +489,7 @@ public class Earnings {
 			" FROM earnings e" +
 			" INNER JOIN product p ON p.id = e.product_id" +
 			" INNER JOIN member m ON m.id = e.member_id" +
-			" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+			" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 			" GROUP BY p.name" +
 			" ORDER BY COUNT(*) DESC;";
 		}else if(!date.equals("") && date2.equals("")){
@@ -569,7 +569,7 @@ public class Earnings {
 			" FROM earnings e" +
 			" INNER JOIN product p ON p.id = e.product_id" +
 			" INNER JOIN member m ON m.id = e.member_id" +
-			" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+			" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 			" AND m.sex = "+ sex + "" +
 			" GROUP BY p.name" +
 			" ORDER BY COUNT(*) DESC;";
@@ -675,7 +675,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age >= "+ age + "" +
 	    				" GROUP BY p.name"+
 	    				" ORDER BY COUNT( * ) DESC;";
@@ -766,7 +766,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age <= "+ age + " AND age > "+ intage +"" +
 	    				" GROUP BY p.name"+
 	    				" ORDER BY COUNT( * ) DESC;";
@@ -912,7 +912,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age >= "+ age + "" +
 	    				" AND m.sex = "+ sex + "" +
 	    				" GROUP BY p.name"+
@@ -1006,7 +1006,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age <= "+ age + " AND age > "+ intage +"" +
 	    				" AND m.sex = "+ sex + "" +
 	    				" GROUP BY p.name"+
@@ -1512,7 +1512,7 @@ public class Earnings {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id" +
 					" WHERE v.id = '"+ vending_ID +"'" +
-					" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
+					" AND date >= '"+ date + "' AND date <= '" + date2 +"'" +
 					" GROUP BY p.name" +
 					" ORDER BY COUNT(*) DESC;";
 			}else if(!date.equals("") && date2.equals("")){
@@ -1595,7 +1595,7 @@ public class Earnings {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id" +
 					" WHERE v.id = '"+ vending_ID +"'" +
-					" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
+					" AND date >= '"+ date + "' AND date <= '" + date2 +"'" +
 					" AND m.sex = '"+ sex + "'" +
 					" GROUP BY p.name" +
 					" ORDER BY COUNT(*) DESC;";
@@ -1682,7 +1682,7 @@ public class Earnings {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id" +
 					" WHERE vending_id = '"+ vending_ID +"'" +
-					" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
+					" AND date >= '"+ date + "' AND date <= '" + date2 +"'" +
 					" AND sex = '"+ age + "'" +
 					" GROUP BY p.name" +
 					" ORDER BY COUNT(*) DESC;";
@@ -1790,7 +1790,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age >= "+ age + "" +
 	    				" AND m.sex = "+ sex + "" +
 	    				" AND vending_id = "+ vending_ID + "" +
@@ -1887,7 +1887,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age <= "+ age + " AND age > "+ intage +"" +
 	    				" AND m.sex = "+ sex + "" +
 	    				" AND vending_id = "+ vending_ID + "" +
@@ -2403,7 +2403,7 @@ public class Earnings {
 				" INNER JOIN product p ON p.id = e.product_id" +
 				" INNER JOIN member m ON m.id = e.member_id" +
 				" WHERE area_id = '"+ area +"'" +
-				" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
+				" AND date >= '"+ date + "' AND date <= '" + date2 +"'" +
 				" GROUP BY p.name" +
 				" ORDER BY COUNT(*) DESC;";
 		}else if(!date.equals("") && date2.equals("")){
@@ -2411,7 +2411,7 @@ public class Earnings {
 					" FROM earnings e" +
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id" +
-					" WHERE v.id = '"+ area +"'" +
+					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 					" GROUP BY p.name" +
 					" ORDER BY COUNT(*) DESC;";
@@ -2421,7 +2421,7 @@ public class Earnings {
 					" FROM earnings e" +
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id" +
-					" WHERE v.id = '"+ area +"'" +
+					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '" + date2 +"'" +
 					" GROUP BY p.name" +
 					" ORDER BY COUNT(*) DESC;";
@@ -2486,7 +2486,7 @@ public class Earnings {
 				" INNER JOIN product p ON p.id = e.product_id" +
 				" INNER JOIN member m ON m.id = e.member_id" +
 				" WHERE area_id = '"+ area +"'" +
-				" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
+				" AND date >= '"+ date + "' AND date <= '" + date2 +"'" +
 				" AND m.sex = '"+ sex + "'" +
 				" GROUP BY p.name" +
 				" ORDER BY COUNT(*) DESC;";
@@ -2594,7 +2594,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age >= "+ age + "" +
 	    				" AND area_id = "+ area + "" +
 	    				" GROUP BY p.name"+
@@ -2691,7 +2691,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age <= "+ age + " AND age > "+ intage +"" +
 	    				" AND area_id = "+ area + "" +
 	    				" GROUP BY p.name"+
@@ -2845,7 +2845,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age >= "+ age + "" +
 	    				" AND m.sex = "+ sex + "" +
 	    				" AND area_id = "+ area + "" +
@@ -2947,7 +2947,7 @@ public class Earnings {
 	    				" ) AS age"+
 	    				" FROM member"+
 	    				")age ON m.id = age.id"+
-	    				" WHERE date >= '"+ date + "' AND date < '" + date2 +"'" +
+	    				" WHERE date >= '"+ date + "' AND date <= '" + date2 +"'" +
 	    				" AND age <= "+ age + " AND age > "+ intage +"" +
 	    				" AND m.sex = "+ sex + "" +
 	    				" AND area_id = "+ area + "" +
