@@ -20,7 +20,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<title>売上</title>
+<title>管理者画面</title>
 </head>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>

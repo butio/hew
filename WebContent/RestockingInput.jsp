@@ -14,6 +14,7 @@ th { text-align: left; }
 <meta charset="utf-8">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
+<title>管理者画面</title>
 </head>
 <body>
 	<form name="Vending" method="get" action="./SelectVendingServlet">

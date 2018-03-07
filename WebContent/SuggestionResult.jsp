@@ -24,7 +24,7 @@ ArrayList<SuggestionDB> arrayList= (ArrayList<SuggestionDB>) request.getAttribut
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style=Type" content="text/css;">
 <link href="css/style.css" rel="stylesheet" type="text/css" >
-<title>自販機</title>
+<title>管理者画面</title>
 </head>
 <body>
 

@@ -16,6 +16,7 @@ th { text-align: left; }
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/stock.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
+<title>管理者画面</title>
 </head>
 <body>
 	<form name="Vending" method="get" action="./SelectVendingServlet">
@@ -80,6 +81,7 @@ th { text-align: left; }
 		}
 	%>
 	<center class="item">
+	<button class="button"  onclick="location.href='AdminTop.jsp'">戻る</button>
 	<button class="button"  onclick="location.href='./RegionalStock'">地域で在庫量を見る</button>
 	<button class="button"  onclick="location.href='StockMap.jsp'">自動販売機の在庫量を見る</button>
 	</center>

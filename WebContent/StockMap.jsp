@@ -10,6 +10,7 @@
  height: 800px;
 }
 </style>
+<title>管理者画面</title>
 </head>
 <body>
 	<div id="map"></div>

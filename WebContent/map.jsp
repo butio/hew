@@ -10,6 +10,7 @@
  height: 800px;
 }
 </style>
+<title>アプリ</title>
 </head>
 <body>
 	<div id="map"></div>

@@ -12,7 +12,7 @@ ArrayList<ArrayList<String>> aryTable = (ArrayList<ArrayList<String>>) request.g
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
-<title>自販機・エリア</title>
+<title>管理者画面</title>
 </head>
 <body>
 <form name="Vending" method="post" action="./SelectVendingServlet">

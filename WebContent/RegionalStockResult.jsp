@@ -15,6 +15,7 @@ th { text-align: left; }
 <meta http-equiv="Content-Style-Type" content="text/css">
 <link rel="stylesheet" href=" ${pageContext.request.contextPath}/css/design.css">
 <link rel="stylesheet" type="text/css" href="./css/reset.css">
+<title>管理者画面</title>
 </head>
 <body>
 	<form name="Vending" method="get" action="./SelectVendingServlet">
@@ -64,8 +65,8 @@ th { text-align: left; }
 		</table>
 	</div>
 	<center class="item">
-		<button class="button" onclick="location.href='StockMap.jsp'">自動販売機の在庫を見に行く</button>
 		<button class="button" onclick="location.href='./RegionalStock'">戻る</button>
+		<button class="button" onclick="location.href='StockMap.jsp'">自動販売機の在庫を見に行く</button>
 	</center>
 	<div id="footer">
 		<p class="copy">copyright(C) 2018</p>

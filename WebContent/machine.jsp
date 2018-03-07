@@ -24,7 +24,7 @@ ArrayList<getVendingDB> arrayList= (ArrayList<getVendingDB>) request.getAttribut
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style=Type" content="text/css;">
 <link href="css/style.css" rel="stylesheet" type="text/css" >
-<title>自販機</title>
+<title>アプリ</title>
 </head>
 <body>
 <form name="machine" action="./Purchase" method="get">

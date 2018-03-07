@@ -39,6 +39,7 @@
     }
   </style>
   <script src="js/common.js"></script>
+  <title>アプリ</title>
 </head>
 <body>
 
