@@ -91,7 +91,7 @@ public class Purchase extends HttpServlet {
 
 				//在庫を減少
 				dao = new Dao();
-				dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "' AND '"+VENDING_ID+"';" );
+				dao.executeUpdate("UPDATE stock SET stock = stock - 1 WHERE count = '" + drink + "' AND vending_id = '"+VENDING_ID+"';" );
 
 				if(!r.changeFlg){
 					change = "おつりは "+ r.getChange() + " 円です";

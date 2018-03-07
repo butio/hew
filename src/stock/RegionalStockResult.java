@@ -50,7 +50,7 @@ public class RegionalStockResult extends HttpServlet {
 			if(state == 1){
 				System.out.println(state);
 
-				sql = "select area.area_place,vending.id,vending.place,stock.count,product.id,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock from stock" +
+				sql = "select area.area_place,vending.id,vending.place,stock.count,product.id,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock,c.area_border from stock" +
 						" inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
 						" inner join area on area.id = vending.area_id" +
@@ -69,7 +69,7 @@ public class RegionalStockResult extends HttpServlet {
 			}else if(state == 2){
 				System.out.println(state);
 
-				sql = "select area.area_place,vending.id,vending.place,stock.count,product.id,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock from stock" +
+				sql = "select area.area_place,vending.id,vending.place,stock.count,product.id,product.name,stock.stock,stock.max_stock,(max_stock * 0.3) as vorder_stock,c.area_border from stock" +
 						" inner join product on product.id = stock.product_id" +
 						" inner join vending on vending.id = stock.vending_id" +
 						" inner join area on area.id = vending.area_id" +
@@ -95,7 +95,7 @@ public class RegionalStockResult extends HttpServlet {
 				s.setProductName(rs.getString("product.name"));
 				s.setStock(rs.getInt("stock.stock"));
 				s.setMaxStock(rs.getInt("stock.max_stock"));
-				s.setStockBorder(rs.getInt("vorder_stock"));
+				s.setStockBorder(rs.getInt("c.area_border"));
 				arrayList.add(s);
 			}
 
