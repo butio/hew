@@ -203,6 +203,7 @@ public class Category {
         			" INNER JOIN product p ON p.id = e.product_id"+
         			" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id"+
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
         			" INNER JOIN ("+
         			" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
         			" CASE WHEN month( now( ) ) > birthmonth"+
@@ -235,7 +236,8 @@ public class Category {
         		" FROM earnings e"+
         		" INNER JOIN product p ON p.id = e.product_id"+
         		" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+        		" INNER JOIN category c ON c.id = p.category_id"+
+
         		" INNER JOIN ("+
         		"SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
         		" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2147,6 +2149,7 @@ public class Category {
         			" INNER JOIN product p ON p.id = e.product_id"+
         			" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id"+
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
         			" INNER JOIN ("+
         			" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
         			" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2180,7 +2183,8 @@ public class Category {
         		" FROM earnings e"+
         		" INNER JOIN product p ON p.id = e.product_id"+
         		" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+        		" INNER JOIN category c ON c.id = p.category_id"+
+    			" INNER JOIN vending v ON v.id = e.vending_id"+
         		" INNER JOIN ("+
         		"SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
         		" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2271,6 +2275,7 @@ public class Category {
         			" INNER JOIN product p ON p.id = e.product_id"+
         			" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id"+
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
         			" INNER JOIN ("+
         			" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
         			" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2305,7 +2310,8 @@ public class Category {
         		" FROM earnings e"+
         		" INNER JOIN product p ON p.id = e.product_id"+
         		" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+       			" INNER JOIN category c ON c.id = p.category_id"+
+    			" INNER JOIN vending v ON v.id = e.vending_id"+
         		" INNER JOIN ("+
         		"SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
         		" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2397,7 +2403,8 @@ public class Category {
 				" INNER JOIN vending v ON v.id = e.vending_id" +
 				" INNER JOIN product p ON p.id = e.product_id" +
 				" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id" +
+        		" INNER JOIN category c ON c.id = p.category_id" +
+    			" INNER JOIN vending v ON v.id = e.vending_id"+
 				" WHERE area_id = '"+ area +"'" +
 				" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
 				" GROUP BY c.category" +
@@ -2408,6 +2415,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
 					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 					" GROUP BY c.category" +
@@ -2419,6 +2427,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
 					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '" + date2 +"'" +
 					" GROUP BY c.category" +
@@ -2483,7 +2492,8 @@ public class Category {
 				" INNER JOIN vending v ON v.id = e.vending_id" +
 				" INNER JOIN product p ON p.id = e.product_id" +
 				" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id" +
+       			" INNER JOIN category c ON c.id = p.category_id" +
+    			" INNER JOIN vending v ON v.id = e.vending_id"+
 				" WHERE area_id = '"+ area +"'" +
 				" AND date >= '"+ date + "' AND date < '" + date2 +"'" +
 				" AND m.sex = '"+ sex + "'" +
@@ -2495,6 +2505,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
 					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '"+ date + "' AND date <='"+ strdate +"'" +
 					" AND m.sex = '"+ sex + "'" +
@@ -2507,6 +2518,7 @@ public class Category {
 					" INNER JOIN product p ON p.id = e.product_id" +
 					" INNER JOIN member m ON m.id = e.member_id"+
         			" INNER JOIN category c ON c.id = p.category_id" +
+        			" INNER JOIN vending v ON v.id = e.vending_id"+
 					" WHERE area_id = '"+ area +"'" +
 					" AND date <= '" + date2 +"'" +
 					" AND m.sex = '"+ sex + "'" +
@@ -2574,7 +2586,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2606,7 +2619,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2638,7 +2652,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2671,7 +2686,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2702,7 +2718,9 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2734,7 +2752,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2824,7 +2843,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2857,7 +2877,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2890,7 +2911,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2924,7 +2946,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2956,7 +2979,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
@@ -2989,7 +3013,8 @@ public class Category {
 						" FROM earnings e"+
 						" INNER JOIN product p ON p.id = e.product_id"+
 						" INNER JOIN member m ON m.id = e.member_id"+
-        			" INNER JOIN category c ON c.id = p.category_id"+
+						" INNER JOIN category c ON c.id = p.category_id"+
+	        			" INNER JOIN vending v ON v.id = e.vending_id"+
 						" INNER JOIN ("+
 						" SELECT id, birthyear, birthmonth, birthday, sex, year( now( ) ) - birthyear - ("+
 						" CASE WHEN month( now( ) ) > birthmonth"+
